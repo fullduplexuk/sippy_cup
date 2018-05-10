@@ -83,7 +83,8 @@ module SippyCup
     # @option options [String, Numeric] :source_port The source port to bind SIPp to (defaults to 8836).
     # @option options [String] :destination The target system at which to direct traffic.
     # @option options [String] :advertise_address The IP address to advertise in SIP and SDP if different from the bind IP (defaults to the bind IP).
-    # @option options [String] :from_user The SIP user from which traffic should appear.
+    # @option options [String] :from_user The SIP user from which traffic should appear. Overwrites user in :from if passed.
+    # @option options [String] :from The SIP user / address from which traffic should appear.
     # @option options [String] :to_user The SIP user to send requests to. Alias for `:to` and deprecated in favour of the same.
     # @option options [String] :to The SIP user / address to send requests to.
     # @option options [Integer] :media_port The RTCP (media) port to bind to locally.
@@ -145,6 +146,21 @@ module SippyCup
       end
     end
 
+    def options(opts = {})
+      msg = <<-MSG
+OPTIONS sip:[remote_ip] SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+From: <sip:sipp@#{@adv_ip}>;tag=[call_number]
+To: <sip:[remote_ip]>
+Call-ID: [call_id]
+CSeq: [cseq] OPTIONS
+Max-Forwards: 100
+User-Agent: #{USER_AGENT}
+Content-Length: 0
+MSG
+      send msg, opts
+    end
+
     #
     # Send an invite message
     #
@@ -156,27 +172,32 @@ module SippyCup
       opts[:retrans] ||= 500
       # FIXME: The DTMF mapping (101) is hard-coded. It would be better if we could
       # get this from the DTMF payload generator
-      from_addr = "#{@from_user}@#{@adv_ip}:[local_port]"
+      from_domain = @from_domain || @adv_ip
+      from_addr = "#{@from_user}@#{from_domain || @adv_ip + ":[local_port]"}"
+      max_forwards = opts[:max_forwards] || 100
+      user_agent = opts[:user_agent].present? ? opts[:user_agent]: USER_AGENT
       msg = <<-MSG
 
 INVITE sip:#{to_addr} SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{from_addr}>;tag=[call_number]
-To: <sip:#{to_addr}>
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
+From: sip:#{from_addr};tag=[call_number]
+To: sip:#{to_addr}
 Call-ID: [call_id]
 CSeq: [cseq] INVITE
-Contact: <sip:#{from_addr};transport=[transport]>
-Max-Forwards: 100
-User-Agent: #{USER_AGENT}
+Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
+Max-Forwards: #{max_forwards}
+User-Agent: #{user_agent}
 Content-Type: application/sdp
 Content-Length: [len]
-#{opts.has_key?(:headers) ? opts.delete(:headers).sub(/\n*\Z/, "\n") : ''}
+#{opts.has_key?(:headers) ? opts.delete(:headers).map { |header| header.sub(/\n*\Z/, "\n") }.join : ''}
 v=0
 o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
 s=-
 c=IN IP[media_ip_type] [media_ip]
 t=0 0
 m=audio [media_port] RTP/AVP 0 101
+a=rtcp-mux
+a=sendrecv
 a=rtpmap:0 PCMU/8000
 a=rtpmap:101 telephone-event/8000
 a=fmtp:101 0-15
@@ -201,6 +222,26 @@ a=fmtp:101 0-15
       @reference_variables += %w(remote_addr local_addr call_addr)
     end
 
+    def subscribe(opts = {})
+      msg = <<-MSG
+SUBSCRIBE sip:#{@from_user}@#{@adv_ip} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+From: <sip:#{@from_user}@#{@adv_ip} >;tag=[call_number]
+To: <sip:#{@from_user}@#{@adv_ip} >
+Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
+Call-ID: [call_id]
+CSeq: [cseq] SUBSCRIBE
+Expires: 300
+Accept: application/simple-message-summary
+Allow: SUBSCRIBE, NOTIFY, INVITE, ACK, CANCEL, BYE, REFER, INFO, OPTIONS, MESSAGE
+User-Agent: #{USER_AGENT}
+Event: message-summary
+Max-Forwards: 10
+Content-Length: 0
+MSG
+      send msg, opts
+    end
+
     #
     # Send a REGISTER message with the specified credentials
     #
@@ -215,16 +256,30 @@ a=fmtp:101 0-15
     #   s.register 'frank'
     #
     def register(user, password = nil, opts = {})
+      user_agent = opts[:user_agent].present? ? opts[:user_agent] : USER_AGENT
       send_opts = opts.dup
       send_opts[:retrans] ||= DEFAULT_RETRANS
       user, domain = parse_user user
-      if password
-        send register_message(domain, user), send_opts
+
+      if password || opts[:auth_keyword]
+        send register_message(domain, user, user_agent), send_opts
+
+        # Handle 200 OK
+        receive_ok opts.merge(optional: true, next: 2)
+
         recv opts.merge(response: 401, auth: true, optional: false)
-        send register_auth(domain, user, password), send_opts
-        receive_ok opts.merge(optional: false)
+
+        if opts[:auth_keyword].present?
+          send register_auth_parameterized(domain, user, opts[:auth_keyword]), send_opts
+        else
+          send register_auth(domain, user, password), send_opts
+        end
+
+        receive_ok opts.merge(optional: false) unless opts[:skip_receive_ok]
+
+        label 2
       else
-        send register_message(domain, user), send_opts
+        send register_message(domain, user, user_agent), send_opts
       end
     end
 
@@ -233,19 +288,19 @@ a=fmtp:101 0-15
     #
     # @param [Hash] opts A set of options containing SIPp <recv> element attributes
     #
-    def receive_invite(opts = {})
+    def receive_invite(opts = { compact_header: false })
       recv(opts.merge(request: 'INVITE', rrs: true)) do |recv|
         action = doc.create_element('action') do |action|
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<sip:(.*)>.*;tag=([^;]*)'
+            ereg['regexp'] = '.*<sip:(.*)>.*;tag=([^;]*)'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = 'From:'
+            ereg['header'] = opts[:compact_header] ? 'f:' : 'From:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
           end
           action << doc.create_element('ereg') do |ereg|
             ereg['regexp'] = '<sip:(.*)>'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = 'To:'
+            ereg['header'] = opts[:compact_header] ? 't:' : 'To:'
             ereg['assign_to'] = 'dummy,local_addr'
           end
           action << doc.create_element('assignstr') do |assignstr|
@@ -269,9 +324,10 @@ a=fmtp:101 0-15
       msg = <<-MSG
 
 SIP/2.0 100 Trying
+[last_Record-Route:]
 [last_Via:]
-From: <sip:[$remote_addr]>;tag=[$remote_tag]
-To: <sip:[$local_addr]>;tag=[call_number]
+[last_From:]
+[last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
 Server: #{USER_AGENT}
@@ -291,9 +347,10 @@ Content-Length: 0
       msg = <<-MSG
 
 SIP/2.0 180 Ringing
+[last_Record-Route:]
 [last_Via:]
-From: <sip:[$remote_addr]>;tag=[$remote_tag]
-To: <sip:[$local_addr]>;tag=[call_number]
+[last_From:]
+[last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
 Server: #{USER_AGENT}
@@ -313,16 +370,15 @@ Content-Length: 0
       opts[:retrans] ||= DEFAULT_RETRANS
       msg = <<-MSG
 
-SIP/2.0 200 Ok
+SIP/2.0 200 OK
+[last_Record-Route:]
 [last_Via:]
-From: <sip:[$remote_addr]>;tag=[$remote_tag]
-To: <sip:[$local_addr]>;tag=[call_number]
+[last_From:]
+[last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
-Server: #{USER_AGENT}
-Contact: <sip:[$local_addr];transport=[transport]>
+Contact: <sip:#{@adv_ip};transport=[transport]>
 Content-Type: application/sdp
-[routes]
 Content-Length: [len]
 
 v=0
@@ -330,10 +386,14 @@ o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
 s=-
 c=IN IP[media_ip_type] [media_ip]
 t=0 0
-m=audio [media_port] RTP/AVP 0
+m=audio [media_port] RTP/AVP 0 8 101
 a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=rtcp-mux
       MSG
-      start_media
+      # start_media
       send msg, opts
     end
 
@@ -347,8 +407,53 @@ a=rtpmap:0 PCMU/8000
       receive_ack opts
     end
 
+    def send_cancel(opts = {})
+      msg = <<-MSG
+
+CANCEL sip:#{to_addr} SIP/2.0
+[last_Via:]
+From: <sip:[$remote_addr]>
+To: <sip:[$local_addr]>;tag=[call_number]
+[last_Call-ID:]
+CSeq: [cseq] CANCEL
+#{opts.has_key?(:headers) ? opts.delete(:headers).sub(/\n*\Z/, "\n") : ''}
+Server: #{USER_AGENT}
+Content-Length: 0
+      MSG
+      send msg, opts
+    end
+
     def receive_ack(opts = {})
       recv opts.merge request: 'ACK'
+    end
+
+
+    #
+    # Send SIP INFO and expect 200 OK
+    #
+    # @param [Hash] opts A set of options to modify the message parameters
+    #
+    #
+    def send_info(opts = {})
+      msg = <<-BODY
+
+INFO sip:#{@from_user}@#{@adv_ip} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+From: <sip:#{@from_user}@#{@adv_ip} >;tag=[call_number]
+To: <sip:#{@from_user}@#{@adv_ip} >
+Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
+Call-ID: [call_id]
+CSeq: [cseq] INFO
+Accept: application/simple-message-summary
+User-Agent: #{USER_AGENT}
+Event: message-summary
+Max-Forwards: 10
+Content-Length: 0
+Content-Type: application/test
+
+      BODY
+      send msg, opts
+      recv response: 200
     end
 
     #
@@ -391,7 +496,7 @@ a=rtpmap:0 PCMU/8000
     # @param [Hash] opts A set of options to modify the expectation
     # @option opts [true, false] :optional Whether or not receipt of the message is optional. Defaults to false.
     #
-    def receive_answer(opts = {})
+    def receive_answer(opts = { compact_header: false })
       options = {
         rrs: true, # Record Record Set: Make the Route headers available via [routes] later
         rtd: true # Response Time Duration: Record the response time
@@ -402,7 +507,7 @@ a=rtpmap:0 PCMU/8000
           action << doc.create_element('ereg') do |ereg|
             ereg['regexp'] = '<sip:(.*)>.*;tag=([^;]*)'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = 'To:'
+            ereg['header'] = opts[:compact_header] ? 't:' : 'To:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
           end
         end
@@ -421,6 +526,77 @@ a=rtpmap:0 PCMU/8000
       recv({ response: 200 }.merge(opts), &block)
     end
     alias :receive_200 :receive_ok
+
+    def receive_too_many_hops(opts = {}, &block)
+      recv({ response: 483 }.merge(opts), &block)
+    end
+    alias :receive_483 :receive_too_many_hops
+
+    def receive_temp_unavailable(opts = {}, &block)
+      recv({ response: 480 }.merge(opts), &block)
+
+      ack_msg = <<-BODY
+
+ACK sip:[service]@#{@to_domain} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch-7]
+From: "#{@from_user}" <sip:#{@from_user}@poc-mike.tncp.textnow.com:[local_port]>;tag=[call_number]
+To: <sip:#{to_addr}>[peer_tag_param]
+Call-ID: [call_id]
+CSeq: [cseq] ACK
+Max-Forwards: 100
+Content-Length: 0
+[routes]
+
+      BODY
+
+      send ack_msg, {}
+    end
+    alias :receive_480 :receive_temp_unavailable
+
+
+    def receive_userbusy(opts = {}, &block)
+      recv({ response: 486 }.merge(opts), &block)
+
+      ack_msg = <<-BODY
+
+ACK sip:[service]@#{@to_domain} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch-7]
+From: "#{@from_user}" <sip:#{@from_user}@poc-mike.tncp.textnow.com:[local_port]>;tag=[call_number]
+To: <sip:#{to_addr}>[peer_tag_param]
+Call-ID: [call_id]
+CSeq: [cseq] ACK
+Max-Forwards: 100
+Content-Length: 0
+[routes]
+
+      BODY
+
+      send ack_msg, {}
+    end
+    alias :receive_486 :receive_userbusy
+
+    
+    def receive_request_terminated(opts = {}, &block)
+      recv({ response: 487 }.merge(opts), &block)
+
+      ack_msg = <<-BODY
+
+ACK sip:[service]@#{@to_domain} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch-7]
+From: "#{@from_user}" <sip:#{@from_user}@poc-mike.tncp.textnow.com:[local_port]>;tag=[call_number]
+To: <sip:#{to_addr}>[peer_tag_param]
+Call-ID: [call_id]
+CSeq: [cseq] ACK
+Max-Forwards: 100
+Content-Length: 0
+[routes]
+
+      BODY
+
+      send ack_msg, {}
+    end
+    alias :receive_487 :receive_request_terminated
+
 
     #
     # Convenience method to wait for an answer from the called party
@@ -447,20 +623,70 @@ a=rtpmap:0 PCMU/8000
       msg = <<-BODY
 
 ACK [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
-Call-ID: [call_id]
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 CSeq: [cseq] ACK
-Contact: <sip:[$local_addr];transport=[transport]>
+Contact: sip:#{@from_user}@#{@adv_ip}:[local_port]
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
 Content-Length: 0
-[routes]
+
       BODY
       send msg, opts
       start_media
     end
+
+    def auth_required(opts = {})
+      recv(response: opts[:status_code] || 401, auth:true)
+    end
+    alias :receive_401 :auth_required
+
+    def proxy_auth_required(opts = {})
+      recv(response: opts[:status_code] || 407, rrs: true, auth: true)
+
+      ack_msg = <<-BODY
+
+ACK sip:#{@to_addr} SIP/2.0
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
+CSeq: [cseq] ACK
+Subject: Proxy Auth Acknowledged
+Max-Forwards: 70
+Content-Length: 0
+
+      BODY
+
+      send ack_msg, {}
+    end
+    alias :receive_407 :proxy_auth_required
+
+    def receive_forbidden(opts = {})
+      recv(response: opts[:status_code] || 403)
+
+      ack_msg = <<-BODY
+
+ACK sip:#{@to_addr} SIP/2.0
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
+CSeq: [cseq] ACK
+Subject: 403 Forbidden Acknowledged
+Max-Forwards: 70
+Content-Length: 0
+
+      BODY
+
+      send ack_msg, {}
+    end
+    alias :receive_403 :receive_forbidden
 
     #
     # Insert a pause into the scenario and its media of the specified duration
@@ -495,24 +721,24 @@ Content-Length: 0
           @media << "dtmf:#{digit}"
           @media << "silence:#{delay}"
         when :info
-          info = <<-INFO
+          info = <<-BODY
 
 INFO [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
-Call-ID: [call_id]
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 CSeq: [cseq] INFO
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-[routes]
 Content-Length: [len]
 Content-Type: application/dtmf-relay
 
 Signal=#{digit}
 Duration=#{delay}
-          INFO
+          BODY
           send info
           recv response: 200
           pause delay
@@ -561,17 +787,39 @@ Duration=#{delay}
     def send_bye(opts = {})
       msg = <<-MSG
 
-BYE sip:[$call_addr] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: <sip:[$local_addr]>;tag=[call_number]
-To: <sip:[$remote_addr]>;tag=[$remote_tag]
-Contact: <sip:[$local_addr];transport=[transport]>
-Call-ID: [call_id]
+BYE [next_url] SIP/2.0
+[last_Via:]
+[routes]
+To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
+From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
+[last_Call-ID:]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
 Content-Length: 0
+      MSG
+      send msg, opts
+    end
+
+    #
+    # Send a BYE message using destination of previous messages Contact Header
+    #
+    # @param [Hash] opts A set of options to modify the message parameters
+    #
+    def send_bye_using_contact(opts = {})
+      msg = <<-MSG
+
+BYE [next_url] SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 [routes]
+To: "#{@from_user}" <sip:#{@from_user}@10.231.56.206:5090>[from_tag_param]
+From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>[to_tag_param]
+[last_Call-ID:]
+Contact: <sip:#{@adv_ip};transport=[transport]>
+Max-Forwards: 100
+CSeq: [cseq] BYE
+User-Agent: #{USER_AGENT}
+Content-Length: 0
       MSG
       send msg, opts
     end
@@ -602,8 +850,8 @@ SIP/2.0 200 OK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       ACK
       send msg, opts
     end
@@ -625,7 +873,10 @@ Content-Length: 0
     # @param [Hash] opts A set of options containing SIPp <recv> element attributes - will be passed to both the <send> and <recv> elements
     #
     def hangup(opts = {})
-      send_bye opts
+      # Use contact is an option to make the bye use the value from the contact header for RURI
+      # As opposed to using the standard $call_addr variable set previously
+      use_contact = opts.delete(:use_contact)
+      use_contact ? send_bye_using_contact(opts) : send_bye(opts)
       receive_ok opts
     end
 
@@ -779,11 +1030,16 @@ Content-Length: 0
         @dtmf_mode = :rfc2833
       end
 
-      @from_user = args[:from_user] || "sipp"
+      if args[:from]
+        @from_user, @from_domain = args[:from].to_s.split('@')
+      else
+        @from_user = args[:from_user] || "sipp"
+      end
 
       args[:to] ||= args[:to_user] if args.has_key?(:to_user)
       if args[:to]
         @to_user, @to_domain = args[:to].to_s.split('@')
+        @to_addr = args[:to]
       end
       @to_domain ||= "[remote_ip]"
     end
@@ -793,7 +1049,7 @@ Content-Length: 0
       @media.compile!
     end
 
-    def register_message(domain, user)
+    def register_message(domain, user, user_agent)
       <<-BODY
 
 REGISTER sip:#{domain} SIP/2.0
@@ -805,7 +1061,7 @@ CSeq: [cseq] REGISTER
 Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
 Max-Forwards: 10
 Expires: 120
-User-Agent: #{USER_AGENT}
+User-Agent: #{user_agent}
 Content-Length: 0
       BODY
     end
@@ -823,6 +1079,24 @@ Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
 Max-Forwards: 20
 Expires: 3600
 [authentication username=#{user} password=#{password}]
+User-Agent: #{USER_AGENT}
+Content-Length: 0
+      AUTH
+    end
+
+    def register_auth_parameterized(domain, user, auth_keyword)
+      <<-AUTH
+
+REGISTER sip:#{domain} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+From: <sip:#{user}@#{domain}>;tag=[call_number]
+To: <sip:#{user}@#{domain}>
+Call-ID: [call_id]
+CSeq: [cseq] REGISTER
+Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
+Max-Forwards: 20
+Expires: 3600
+[#{auth_keyword}]
 User-Agent: #{USER_AGENT}
 Content-Length: 0
       AUTH
@@ -871,6 +1145,14 @@ Content-Length: 0
     def optional_recv(opts)
       opts[:optional] = true if opts[:optional].nil?
       recv opts
+    end
+
+    def label(id)
+      label = Nokogiri::XML::Node.new 'label', doc
+      label['id'] = id
+
+      yield recv if block_given?
+      scenario_node << label
     end
 
     def handle_response(code, opts)
