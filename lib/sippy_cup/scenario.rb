@@ -156,31 +156,32 @@ module SippyCup
       # FIXME: The DTMF mapping (101) is hard-coded. It would be better if we could
       # get this from the DTMF payload generator
       from_addr = "#{@from_user}@#{@adv_ip}:[local_port]"
-      msg = <<-MSG
+      opt_hdrs = (opts.has_key?(:auth_keyword) ? opts[:auth_keyword] : '')
+      + (opts.has_key?(:headers) ? "\n#{opts[:headers]}" : '' ) 
+      msg = <<-HDR + (opt_hdrs.nil?||opt_hdrs.empty? ? '' : (opt_hdrs + "\n")) + "\n" + <<-SDP
 
-        INVITE sip:#{to_addr} SIP/2.0
-        Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-        From: "#{@from_user}" <sip:#{from_addr}>;tag=[call_number]
-        To: <sip:#{to_addr}>
-        Call-ID: [call_id]
-        CSeq: [cseq] INVITE
-        Contact: <sip:#{from_addr};transport=[transport]>
-        Max-Forwards: 100
-        User-Agent: #{USER_AGENT}
-        Content-Type: application/sdp
-        Content-Length: [len]
-        #{opts.has_key?(:auth_keyword) ? opts.fetch(:auth_keyword) : ''}
-        #{opts.has_key?(:headers) ? opts.delete(:headers).sub(/\n*\Z/, "\n") : ''}
-        v=0
-        o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
-        s=-
-        c=IN IP[media_ip_type] [media_ip]
-        t=0 0
-        m=audio [media_port] RTP/AVP 0 101
-        a=rtpmap:0 PCMU/8000
-        a=rtpmap:101 telephone-event/8000
-        a=fmtp:101 0-15
-      MSG
+INVITE sip:#{to_addr} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+From: "#{@from_user}" <sip:#{from_addr}>;tag=[call_number]
+To: <sip:#{to_addr}>
+Call-ID: [call_id]
+CSeq: [cseq] INVITE
+Contact: <sip:#{from_addr};transport=[transport]>
+Max-Forwards: 100
+User-Agent: #{USER_AGENT}
+Content-Type: application/sdp
+Content-Length: [len]
+HDR
+v=0
+o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
+s=-
+c=IN IP[media_ip_type] [media_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 0 101
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+      SDP
       send msg, opts do |send|
         send << doc.create_element('action') do |action|
           action << doc.create_element('assignstr') do |assignstr|
@@ -200,7 +201,6 @@ module SippyCup
       # These variables will only be used if we initiate a hangup
       @reference_variables += %w(remote_addr local_addr call_addr)
     end
-
 
     #
     # Send a REGISTER message with the specified credentials
