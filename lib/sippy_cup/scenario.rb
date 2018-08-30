@@ -482,8 +482,8 @@ CSeq: [cseq] ACK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       BODY
       send msg, opts
       start_media
@@ -508,9 +508,8 @@ CSeq: [cseq] ACK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
-
+Content-Length: 0
       BODY
 
       send ack_msg, {}
@@ -625,8 +624,8 @@ Call-ID: [call_id]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       MSG
       send msg, opts
     end
@@ -648,8 +647,8 @@ Call-ID: [call_id]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       MSG
       send msg, opts
     end
@@ -680,8 +679,8 @@ SIP/2.0 200 OK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       ACK
       send msg, opts
     end
