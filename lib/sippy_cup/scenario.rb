@@ -564,8 +564,8 @@ CSeq: [cseq] ACK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       BODY
       send msg, opts
       start_media
@@ -956,6 +956,7 @@ Content-Length: 0
       args[:to] ||= args[:to_user] if args.has_key?(:to_user)
       if args[:to]
         @to_user, @to_domain = args[:to].to_s.split('@')
+        @to_addr = args[:to]
       end
       @to_domain ||= "[remote_ip]"
     end
