@@ -586,8 +586,8 @@ CSeq: [cseq] ACK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       BODY
       send msg, opts
       start_media
@@ -734,8 +734,8 @@ Call-ID: [call_id]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       MSG
       send msg, opts
     end
@@ -748,17 +748,17 @@ Content-Length: 0
     def send_bye_using_contact(opts = {})
       msg = <<-MSG
 
-BYE sip:[next_url] SIP/2.0
+BYE [next_url] SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: <sip:[$local_addr]>;tag=[call_number]
-To: <sip:[$remote_addr]>;tag=[$remote_tag]
+Max-Forwards: 100
 Contact: <sip:[$local_addr];transport=[transport]>
+To: <sip:[$remote_addr]>;tag=[$remote_tag]
+From: <sip:[$local_addr]>;tag=[call_number]
 Call-ID: [call_id]
 CSeq: [cseq] BYE
-Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       MSG
       send msg, opts
     end
@@ -789,8 +789,8 @@ SIP/2.0 200 OK
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-Content-Length: 0
 [routes]
+Content-Length: 0
       ACK
       send msg, opts
     end
@@ -978,6 +978,7 @@ Content-Length: 0
       args[:to] ||= args[:to_user] if args.has_key?(:to_user)
       if args[:to]
         @to_user, @to_domain = args[:to].to_s.split('@')
+        @to_addr = args[:to]
       end
       @to_domain ||= "[remote_ip]"
     end
