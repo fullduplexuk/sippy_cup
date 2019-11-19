@@ -487,6 +487,28 @@ Content-Length: 0
     end
     alias :receive_483 :receive_too_many_hops
 
+    def receive_temp_unavailable(opts = {}, &block)
+      recv({ response: 480 }.merge(opts), &block)
+
+      ack_msg = <<-BODY
+
+ACK sip:[service]@#{@to_domain} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch-7]
+From: "#{@from_user}" <sip:#{@from_user}@poc-mike.tncp.textnow.com:[local_port]>;tag=[call_number]
+To: <sip:#{to_addr}>[peer_tag_param]
+Call-ID: [call_id]
+CSeq: [cseq] ACK
+Max-Forwards: 100
+Content-Length: 0
+[routes]
+
+      BODY
+
+      send ack_msg, {}
+    end
+    alias :receive_480 :receive_temp_unavailable
+
+
     def receive_userbusy(opts = {}, &block)
       recv({ response: 486 }.merge(opts), &block)
 
