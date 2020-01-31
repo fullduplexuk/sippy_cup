@@ -421,17 +421,18 @@ Content-Length: 0
     def send_info(opts = {})
       msg = <<-BODY
 
-INFO [next_url] SIP/2.0
+INFO sip:#{@from_user}@#{@adv_ip} SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
+From: <sip:#{@from_user}@#{@adv_ip} >;tag=[call_number]
+To: <sip:#{@from_user}@#{@adv_ip} >
+Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
 Call-ID: [call_id]
 CSeq: [cseq] INFO
-Contact: <sip:[$local_addr];transport=[transport]>
-Max-Forwards: 100
+Accept: application/simple-message-summary
 User-Agent: #{USER_AGENT}
-[routes]
-Content-Length: [len]
+Event: message-summary
+Max-Forwards: 10
+Content-Length: 0
 Content-Type: application/test
 
       BODY
