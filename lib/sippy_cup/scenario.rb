@@ -411,6 +411,34 @@ Content-Length: 0
       recv opts.merge request: 'ACK'
     end
 
+
+    #
+    # Send SIP INFO and expect 200 OK
+    #
+    # @param [Hash] opts A set of options to modify the message parameters
+    #
+    #
+    def send_info(opts = {})
+      msg = <<-BODY
+
+INFO [next_url] SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
+To: <sip:#{to_addr}>[peer_tag_param]
+Call-ID: [call_id]
+CSeq: [cseq] INFO
+Contact: <sip:[$local_addr];transport=[transport]>
+Max-Forwards: 100
+User-Agent: #{USER_AGENT}
+[routes]
+Content-Length: [len]
+Content-Type: application/test
+
+      BODY
+      send msg, opts
+      recv response: 200
+    end
+
     #
     # Sets an expectation for a SIP 100 message from the remote party
     #
