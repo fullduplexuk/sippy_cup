@@ -480,7 +480,7 @@ Content-Type: application/test
     # @param [Hash] opts A set of options to modify the expectation
     # @option opts [true, false] :optional Whether or not receipt of the message is optional. Defaults to false.
     #
-    def receive_answer(opts = { compact_header : false })
+    def receive_answer(opts = { compact_header: false })
       options = {
         rrs: true, # Record Record Set: Make the Route headers available via [routes] later
         rtd: true # Response Time Duration: Record the response time
