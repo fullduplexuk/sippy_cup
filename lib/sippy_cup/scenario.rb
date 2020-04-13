@@ -277,19 +277,19 @@ MSG
     #
     # @param [Hash] opts A set of options containing SIPp <recv> element attributes
     #
-    def receive_invite(opts = {})
+    def receive_invite(opts = { compact_header: false })
       recv(opts.merge(request: 'INVITE', rrs: true)) do |recv|
         action = doc.create_element('action') do |action|
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<sip:(.*)>.*;tag=([^;]*)'
+            ereg['regexp'] = '.*<sip:(.*)>.*;tag=([^;]*)'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = 'From:'
+            ereg['header'] = opts[:compact_header] ? 'f:' : 'From:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
           end
           action << doc.create_element('ereg') do |ereg|
             ereg['regexp'] = '<sip:(.*)>'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = 'To:'
+            ereg['header'] = opts[:compact_header] ? 't:' : 'To:'
             ereg['assign_to'] = 'dummy,local_addr'
           end
           action << doc.create_element('assignstr') do |assignstr|
@@ -480,7 +480,7 @@ Content-Type: application/test
     # @param [Hash] opts A set of options to modify the expectation
     # @option opts [true, false] :optional Whether or not receipt of the message is optional. Defaults to false.
     #
-    def receive_answer(opts = {})
+    def receive_answer(opts = { compact_header: false })
       options = {
         rrs: true, # Record Record Set: Make the Route headers available via [routes] later
         rtd: true # Response Time Duration: Record the response time
@@ -491,7 +491,7 @@ Content-Type: application/test
           action << doc.create_element('ereg') do |ereg|
             ereg['regexp'] = '<sip:(.*)>.*;tag=([^;]*)'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = 'To:'
+            ereg['header'] = opts[:compact_header] ? 't:' : 'To:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
           end
         end
