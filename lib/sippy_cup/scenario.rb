@@ -281,7 +281,7 @@ MSG
       recv(opts.merge(request: 'INVITE', rrs: true)) do |recv|
         action = doc.create_element('action') do |action|
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<sip:(.*)>.*;tag=([^;]*)'
+            ereg['regexp'] = '.*<sip:(.*)>.*;tag=([^;]*)'
             ereg['search_in'] = 'hdr'
             ereg['header'] = 'From:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
