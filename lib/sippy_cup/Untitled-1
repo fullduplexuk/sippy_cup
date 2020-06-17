@@ -1,0 +1,925 @@
+2020-06-23 15:18:28.493 5759-5872/com.enflick.android.TextNow V/FA: Inactivity, disconnecting from the service
+2020-06-23 15:18:30.058 5759-5912/com.enflick.android.TextNow D/TextNow: [BlockedContactUtils] Checked block state for a single contact value
+2020-06-23 15:18:30.065 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] trying normal call.
+2020-06-23 15:18:30.074 5759-5912/com.enflick.android.TextNow D/TextNow: [BlockedContactUtils] Checked block state for a single contact value
+2020-06-23 15:18:30.079 5759-5912/com.enflick.android.TextNow D/TextNow: [OutgoingCallReporter] setSipClient() called with: sipClient = [pjsip]
+2020-06-23 15:18:30.080 5759-5912/com.enflick.android.TextNow D/TextNow: [CallMetricUtils] Initialized metrics.
+2020-06-23 15:18:30.085 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] placeCall: dataRoamingEnabled is false
+2020-06-23 15:18:30.085 5759-5912/com.enflick.android.TextNow D/TextNow: [TelephonyUtils] isMobileDataNetworkVoipCapable() called with: isRoaming = [false], isConnected = [true], allowUnknownNetwork = [false]
+2020-06-23 15:18:30.086 5759-5912/com.enflick.android.TextNow D/TextNow: [TelephonyUtils] There's no mobile data network available false true
+2020-06-23 15:18:30.087 5759-5912/com.enflick.android.TextNow D/TextNow: [AppUtils] isCDMAFallbackable() returned: false, cdma fallback disabled in user info
+2020-06-23 15:18:30.089 5759-5912/com.enflick.android.TextNow D/TextNow: [AppUtils] isCDMAFallbackable() returned: false, cdma fallback disabled in user info
+2020-06-23 15:18:30.089 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] Placing call over VoIP
+2020-06-23 15:18:30.090 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] Placing call now
+2020-06-23 15:18:30.090 5759-5912/com.enflick.android.TextNow D/TextNow: [NotificationHelper] getDialingNotification() called with: context = [com.enflick.android.TextNow.tncalling.CallService@a81da00], contact = [com.enflick.android.TextNow.model.TNContact[mContactValue +14242908378, mContactType 2, mContactUriStr null, mContactName null]]
+2020-06-23 15:18:30.091 5759-5912/com.enflick.android.TextNow E/TextNow: [ContactUtils] Permission is missing
+2020-06-23 15:18:30.091 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] getIntentToCall() called with: host = [com.enflick.android.TextNow.tncalling.CallService@a81da00], contact = [null]
+2020-06-23 15:18:30.095 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onStart()
+2020-06-23 15:18:30.095 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] recordNetworkState: using active network info
+2020-06-23 15:18:30.095 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] recordNetworkState: wifi: true, data: false
+2020-06-23 15:18:30.096 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] register() called with: renew = [false]
+2020-06-23 15:18:30.097 5759-5912/com.enflick.android.TextNow D/TextNow: [RegistrationRunnable] run() called
+2020-06-23 15:18:30.097 5759-5912/com.enflick.android.TextNow D/TextNow: [RegistrationRunnable] run: mCurrentRetryInterval: 0
+2020-06-23 15:18:30.098 5759-5912/com.enflick.android.TextNow D/TextNow: [RegistrationRunnable] requestNextRegistrar() called
+2020-06-23 15:18:30.099 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] resolveHostname() called with: registrarHostname = [stage.tncp.textnow.com]
+2020-06-23 15:18:30.099 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] resolveRegistrarSRVRecords() called
+2020-06-23 15:18:30.100 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] createResolver: using DNS servers from network on device
+2020-06-23 15:18:30.100 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] getActiveNetworkNameservers(): Current call bearer is WIFI
+2020-06-23 15:18:30.100 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] PreCallOutput: { mDataToCDMAEnabled: false, isWifiToDataEnabled: true }
+2020-06-23 15:18:30.103 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] makeCall() called with: target = [+14242908378]
+2020-06-23 15:18:30.104 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyTNCallState(), Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 callState: TRYING
+2020-06-23 15:18:30.104 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] Querying DNS servers for network type WIFI
+2020-06-23 15:18:30.104 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] Network private dns status -- Active? false
+2020-06-23 15:18:30.104 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] createResolver: Considering 1 nameservers
+2020-06-23 15:18:30.104 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] createResolver: Using provided nameservers and extended resolver: [192.168.0.1]
+2020-06-23 15:18:30.104 5759-5912/com.enflick.android.TextNow I/TextNow: [CallManager] placeCall successful, call created with ID: ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:30.106 5759-5912/com.enflick.android.TextNow D/TextNow: [CallHeartbeatService] onCallPlaced() called with: context = [com.enflick.android.TextNow.TextNowDebugApp@a1dbb43], callId = [ac692afe-6eb2-4297-8c07-5d95b34da402]
+2020-06-23 15:18:30.107 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TRYING]
+2020-06-23 15:18:30.107 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] onCallStateChanged() called with: state = [TRYING], activePhoneCall = [Local Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 Number: +14242908378 Started: 0 Ended: 0 Conversation: null], remainingCallsOutOfCallGroup = [0]
+2020-06-23 15:18:30.108 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TRYING], callType = [VOIP]
+2020-06-23 15:18:30.111 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] calls-dev Record saved: {"created_at":"2020-06-23 19:18:30","http_response_status":200,"event_source":"client","username":"karn","client_type":"TN_ANDROID","client_version":"20.22.0.0","country_code":"","call_direction":"outgoing","call_duration":0,"from_username":"karn","call_status":"placed","from":"+19204623541","to":"+14242908378"}
+2020-06-23 15:18:30.120 5759-5759/com.enflick.android.TextNow V/FragmentManager: Commit: BackStackEntry{20d8452}
+2020-06-23 15:18:30.120 5759-5759/com.enflick.android.TextNow D/FragmentManager:   mName=null mIndex=-1 mCommitted=false
+2020-06-23 15:18:30.120 5759-5759/com.enflick.android.TextNow D/FragmentManager:   Operations:
+2020-06-23 15:18:30.120 5759-5759/com.enflick.android.TextNow D/FragmentManager:     Op #0: REPLACE CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.146 5759-5912/com.enflick.android.TextNow D/TextNow: [SipClientEventReporter] reportRegistrationStarted() called
+2020-06-23 15:18:30.146 5759-5912/com.enflick.android.TextNow D/TextNow: [OutgoingCallReporter] handleRegistrationStarted() called with: registrarDomain = [stage.tncp.textnow.com]
+2020-06-23 15:18:30.148 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onRegistrationStarted() called
+2020-06-23 15:18:30.148 5759-5912/com.enflick.android.TextNow D/TextNow: [IncomingCallReporter] handleRegistrationStarted() called
+2020-06-23 15:18:30.148 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] recordNetworkState: using active network info
+2020-06-23 15:18:30.148 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] recordNetworkState: wifi: true, data: false
+2020-06-23 15:18:30.148 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] No network switch detected
+2020-06-23 15:18:30.150 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] onCallStateChanged: unknown call state -- doing nothing
+2020-06-23 15:18:30.150 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [TRYING]
+2020-06-23 15:18:30.150 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:30.151 5759-5912/com.enflick.android.TextNow D/TextNow: [TNUserInfo] incremented +14242908378 by 1 to 4
+2020-06-23 15:18:30.152 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Event: CALL_DIALING_STATE [72, [Call State, TRYING, Call ID, ac692afe-6eb2-4297-8c07-5d95b34da402, Call Type, VOIP, Contact: , +14242908378, Is Outgoing Call?, true]]
+2020-06-23 15:18:30.153 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TRYING]
+2020-06-23 15:18:30.154 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TRYING], callType = [VOIP]
+2020-06-23 15:18:30.156 5759-6108/com.enflick.android.TextNow D/CompatibilityChangeReporter: Compat change id reported: 150939131; UID 10306; state: DISABLED
+2020-06-23 15:18:30.156 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged TRYING
+2020-06-23 15:18:30.157 5759-5759/com.enflick.android.TextNow V/FragmentManager: Run: BackStackEntry{20d8452}
+2020-06-23 15:18:30.157 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto ATTACHED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.158 5759-5912/com.enflick.android.TextNow D/TextNow: [TNFragmentBase] onFragmentViewCreatedListener not implemented
+2020-06-23 15:18:30.158 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto CREATED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.159 5759-5912/com.enflick.android.TextNow D/TextNow: [AppUtils] isCDMAFallbackable() returned: false, cdma fallback disabled in user info
+2020-06-23 15:18:30.160 5759-5759/com.enflick.android.TextNow D/AudioTrack: logBufferSizeUnderruns(), mMetricsId = audio.track.2601
+2020-06-23 15:18:30.165 5759-5759/com.enflick.android.TextNow D/FragmentManager: onCleared called for FragmentManagerViewModel{efe4cb9} Fragments () Child Non Config () ViewModelStores ()
+2020-06-23 15:18:30.166 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto CREATE_VIEW: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.166 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment} onCreateView
+2020-06-23 15:18:30.170 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_INSTREAM_NATIVE_CALL
+2020-06-23 15:18:30.171 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_INSTREAM_NATIVE_CALL_OUTGOING
+2020-06-23 15:18:30.171 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_INSTREAM_NATIVE_CALL, value=0.0, info=}
+2020-06-23 15:18:30.173 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_INSTREAM_NATIVE_CALL without info
+2020-06-23 15:18:30.173 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_INSTREAM_NATIVE_CALL_OUTGOING, value=0.0, info=}
+2020-06-23 15:18:30.175 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_INSTREAM_NATIVE_CALL_OUTGOING without info
+2020-06-23 15:18:30.195 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] SRV lookup complete after 71ms
+2020-06-23 15:18:30.195 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] Performing A hostname lookup for: _sip._udp.stage.tncp.textnow.com.	60	IN	SRV	10 50 5090 sip-proxy1.us-east-1.stage.tncp.textnow.com.
+2020-06-23 15:18:30.215 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] lookup complete after 20ms
+2020-06-23 15:18:30.215 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] found 1 hostname records
+2020-06-23 15:18:30.216 5759-5912/com.enflick.android.TextNow D/TextNow: [SrvResolver] got A record: sip-proxy1.us-east-1.stage.tncp.textnow.com.	60	IN	A	52.203.74.121
+2020-06-23 15:18:30.216 5759-5912/com.enflick.android.TextNow D/TextNow: [RegistrationRunnable] notifyResolutionSuccess() currentRecord: [52.203.74.121:5090, priority: 10, weight: 50]
+2020-06-23 15:18:30.217 5759-5912/com.enflick.android.TextNow D/TextNow: [RegistrationRunnable] Selecting proxy: 52.203.74.121:5090
+2020-06-23 15:18:30.217 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] recreateAccountWithProxy() called with: proxy = [52.203.74.121:5090]
+2020-06-23 15:18:30.217 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Creating endpoint...
+2020-06-23 15:18:30.228 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Creating EP config...
+2020-06-23 15:18:30.229 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - AudioRoute changed to: Receiver
+2020-06-23 15:18:30.229 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - updateAudioButton: 'speaker toggle' mode...
+2020-06-23 15:18:30.230 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallSensorLockHelper] Creating the wifi lock
+2020-06-23 15:18:30.231 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] init lib with ep config
+2020-06-23 15:18:30.232 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.231 sip_endpoint.c thr0x77300ac  Module "mod-pjsua-log" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 sip_endpoint.c thr0x77300ac  Module "mod-tsx-layer" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 sip_endpoint.c thr0x77300ac  Module "mod-stateful-util" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 sip_endpoint.c thr0x77300ac  Module "mod-ua" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 sip_endpoint.c thr0x77300ac  Module "mod-100rel" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 sip_endpoint.c thr0x77300ac  Module "mod-pjsua" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 sip_endpoint.c thr0x77300ac  Module "mod-invite" registered
+2020-06-23 15:18:30.237 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.237 android_jni_de thr0x77300ac  Android JNI sound library initialized
+2020-06-23 15:18:30.238 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.238          pjlib thr0x77300ac  select() I/O Queue created (0x79bcdd3be8)
+2020-06-23 15:18:30.243 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallSensorLockHelper] Acquiring the proximity lock
+2020-06-23 15:18:30.243 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.243 sip_endpoint.c thr0x77300ac  Module "mod-evsub" registered
+2020-06-23 15:18:30.244 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244 sip_endpoint.c thr0x77300ac  Module "mod-presence" registered
+2020-06-23 15:18:30.244 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244 sip_endpoint.c thr0x77300ac  Module "mod-mwi" registered
+2020-06-23 15:18:30.244 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244 sip_endpoint.c thr0x77300ac  Module "mod-refer" registered
+2020-06-23 15:18:30.244 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244 sip_endpoint.c thr0x77300ac  Module "mod-pjsua-pres" registered
+2020-06-23 15:18:30.244 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244 sip_endpoint.c thr0x77300ac  Module "mod-pjsua-im" registered
+2020-06-23 15:18:30.244 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244 sip_endpoint.c thr0x77300ac  Module "mod-pjsua-options" registered
+2020-06-23 15:18:30.245 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.244   pjsua_core.c thr0x77300ac  pjsua version 2.6 for Linux-4.14.176/aarch64 initialized
+2020-06-23 15:18:30.245 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.245   pjsua_core.c thr0x77300ac  PJSUA state changed: CREATED --> INIT
+2020-06-23 15:18:30.245 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] createTransports()
+2020-06-23 15:18:30.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.249   pjsua_core.c thr0x77300ac  SIP UDP socket reachable at 192.168.0.103:45526
+2020-06-23 15:18:30.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.249   pjsua_core.c thr0x77300ac  PJSUA state changed: INIT --> STARTING
+2020-06-23 15:18:30.250 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.250 sip_endpoint.c thr0x77300ac  Module "mod-unsolicited-mwi" registered
+2020-06-23 15:18:30.250 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.250   pjsua_core.c thr0x77300ac  PJSUA state changed: STARTING --> RUNNING
+2020-06-23 15:18:30.251 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.251   endpoint.cpp thr0x77300ac  codecGetParam() codec_id = 'opus/48000/2'
+2020-06-23 15:18:30.251 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.251         opus.c thr0x77300ac  factory_default_attr:460: - TRACE
+2020-06-23 15:18:30.252 5759-5912/com.enflick.android.TextNow D/TextNow: [LocationUtils] Failed to retrieve GPS location: access appears to be disabled.
+2020-06-23 15:18:30.252 5759-5912/com.enflick.android.TextNow D/TextNow: [LocationUtils] Failed to retrieve network location: access appears to be disabled.
+2020-06-23 15:18:30.252 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:30.253 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:30.254 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Initializing ToneGenerator.
+2020-06-23 15:18:30.259 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.259    pjsua_acc.c thr0x77300ac  Acc 0: setting registration..
+2020-06-23 15:18:30.259 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] setRegistrationOnAccount() called
+2020-06-23 15:18:30.260 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.260      sip_reg.c thr0x77300ac  Sending register request with timeout 5000
+2020-06-23 15:18:30.261 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.261   pjsua_core.c thr0x77300ac  TX 726 bytes Request msg REGISTER/cseq=48714 (tdta0x79cd0a95e8) to UDP 52.203.74.121:5090:
+    REGISTER sip:stage.tncp.textnow.com SIP/2.0
+    v: SIP/2.0/UDP 192.168.0.103:45526;rport;branch=z9hG4bKPjb4c115c6-1c88-4978-aa46-358a35bb2f96
+    Route: <sip:52.203.74.121:5090;lr>
+    Max-Forwards: 70
+    f: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=73ca9ab3-5c9b-4d67-8dda-fccca9f3bee8
+    t: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>
+    i: 80e44e7c-9094-45c3-a279-90c4bff95f68
+    CSeq: 48714 REGISTER
+    User-Agent: TextNow PjSip 2.6/20.22.0.0
+    m: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@192.168.0.103:45526>
+    Expires: 60
+    Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, INFO, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS
+    l:  0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.261 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.261 sip_util_state thr0x77300ac  Setting request timeout of 5000
+2020-06-23 15:18:30.262 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.262    pjsua_acc.c thr0x77300ac  Acc 0: Registration sent
+2020-06-23 15:18:30.262 5759-5912/com.enflick.android.TextNow D/TextNow: [PjAccount] onRegStarted renew=true
+2020-06-23 15:18:30.262 5759-5912/com.enflick.android.TextNow D/TextNow: [RegistrationRunnable] continueRegistration: done setting registration on account
+2020-06-23 15:18:30.269 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] CallingFragment mock view
+2020-06-23 15:18:30.269 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [TRYING]
+2020-06-23 15:18:30.270 5759-5912/com.enflick.android.TextNow V/TextNow: [AsyncViewStub] BEGIN async layout inflation for layoutRes: 2131558599
+2020-06-23 15:18:30.271 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] CallingFragment finished createView
+2020-06-23 15:18:30.273 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto ACTIVITY_CREATED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.273 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto RESTORE_VIEW_STATE: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.273 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto STARTED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.273 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto RESUMED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:30.274 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - startDialerSession: mLocalToneEnabled = true
+2020-06-23 15:18:30.275 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] CallingFragment onCallServiceBind
+2020-06-23 15:18:30.276 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] onCallingFragmentOnResume
+2020-06-23 15:18:30.276 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] getCurrentCallState() called
+2020-06-23 15:18:30.276 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] getCallState: call is null
+2020-06-23 15:18:30.277 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallStateChanged for state: UNKNOWN
+2020-06-23 15:18:30.277 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] getAudioRoute RECEIVER 0
+2020-06-23 15:18:30.277 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] getAudioRoute() -- current: RECEIVER
+2020-06-23 15:18:30.277 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - AudioRoute changed to: Receiver
+2020-06-23 15:18:30.277 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - updateAudioButton: 'speaker toggle' mode...
+2020-06-23 15:18:30.278 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] Call hold state changed for id: ac692afe-6eb2-4297-8c07-5d95b34da402 to Active
+2020-06-23 15:18:30.278 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.278 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.291 5759-5759/com.enflick.android.TextNow I/AudioTrack: createTrack_l(0): AUDIO_OUTPUT_FLAG_FAST successful; frameCount 960 -> 960
+2020-06-23 15:18:30.308 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallerNameUpdate: +1(424) 290-8378
+2020-06-23 15:18:30.309 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] in network status changed, updating call record
+2020-06-23 15:18:30.310 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.311 5759-5912/com.enflick.android.TextNow V/TextNow: [AsyncViewStub] FINISHED Async layout inflation for layoutRes: 2131558599
+2020-06-23 15:18:30.319 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.319   pjsua_core.c      pjsua_0  RX 631 bytes Response msg 401/REGISTER/cseq=48714 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 401 Unauthorized
+    v: SIP/2.0/UDP 192.168.0.103:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPjb4c115c6-1c88-4978-aa46-358a35bb2f96
+    f: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=73ca9ab3-5c9b-4d67-8dda-fccca9f3bee8
+    t: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=3c5288712d751d989ecb52dfd1d7d6cc.75170000
+    i: 80e44e7c-9094-45c3-a279-90c4bff95f68
+    CSeq: 48714 REGISTER
+    WWW-Authenticate: Digest realm="stage.tncp.textnow.com", nonce="XvJWs17yVYcK3GJxLIwWWXaBovqeJkGp"
+    Server: sip-registrar1.tncp
+    Content-Length: 0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.320 5759-5912/com.enflick.android.TextNow V/TextNow: [AsyncViewStub] Replaced self with inflated view. Copied layout params? true
+2020-06-23 15:18:30.321 5759-5912/com.enflick.android.TextNow V/TextNow: [AsyncViewStub] Notify callback inflate finished
+2020-06-23 15:18:30.322 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.321      sip_reg.c      pjsua_0  Sending register request with timeout 5000
+2020-06-23 15:18:30.327 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.327   pjsua_core.c      pjsua_0  TX 974 bytes Request msg REGISTER/cseq=48715 (tdta0x79cd0a95e8) to UDP 52.203.74.121:5090:
+    REGISTER sip:stage.tncp.textnow.com SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPjdd0c7f1b-6579-4aa0-a314-74ed306ce181
+    Route: <sip:52.203.74.121:5090;lr>
+    Max-Forwards: 70
+    f: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=73ca9ab3-5c9b-4d67-8dda-fccca9f3bee8
+    t: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>
+    i: 80e44e7c-9094-45c3-a279-90c4bff95f68
+    CSeq: 48715 REGISTER
+    User-Agent: TextNow PjSip 2.6/20.22.0.0
+    m: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@108.170.177.208:45526>
+    Expires: 60
+    Allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, INFO, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS
+    Authorization: Digest username="19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK", realm="stage.tncp.textnow.com", nonce="XvJWs17yVYcK3GJxLIwWWXaBovqeJkGp", uri="sip:stage.tncp.textnow.com", response="ac9cb6576578c456422aeb01642ce6d9"
+    l:  0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.328 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.327 sip_util_state      pjsua_0  Setting request timeout of 5000
+2020-06-23 15:18:30.391 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.390   pjsua_core.c      pjsua_0  RX 681 bytes Response msg 200/REGISTER/cseq=48715 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 200 OK
+    v: SIP/2.0/UDP 108.170.177.208:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPjdd0c7f1b-6579-4aa0-a314-74ed306ce181
+    f: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=73ca9ab3-5c9b-4d67-8dda-fccca9f3bee8
+    t: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=3c5288712d751d989ecb52dfd1d7d6cc.75170000
+    i: 80e44e7c-9094-45c3-a279-90c4bff95f68
+    CSeq: 48715 REGISTER
+    Contact: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@108.170.177.208:45526;alias=108.170.177.208~45526~1>;expires=60
+    Supported: outbound
+    Server: sip-registrar1.tncp
+    Content-Length: 0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.392 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.391    pjsua_acc.c      pjsua_0  SIP outbound status for acc 0 is not active
+2020-06-23 15:18:30.392 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.392    pjsua_acc.c      pjsua_0  sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com: registration success, status=200 (OK), will re-register in 60 seconds
+2020-06-23 15:18:30.398 5759-5912/com.enflick.android.TextNow D/TextNow: [PjAccount] onRegState statusCode=PJSIP_SC_OK, expiration=60
+2020-06-23 15:18:30.398 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] onRegistrationStateChanged() called with: status_code = [PJSIP_SC_OK], reason = [OK]
+2020-06-23 15:18:30.399 5759-5912/com.enflick.android.TextNow V/TextNow: [PjSipClient] Registration state changed (code=PJSIP_SC_OK,reason=OK). Registered: true. Expiry: 60
+2020-06-23 15:18:30.399 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_SIP_CLIENT_REGISTRATION, value=0.0, info=}
+2020-06-23 15:18:30.399 5759-5912/com.enflick.android.TextNow D/TextNow: [OutgoingCallReporter] handleRegistrationUpdate() called with: isRegistered = [true]
+2020-06-23 15:18:30.400 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_SIP_CLIENT_REGISTRATION
+2020-06-23 15:18:30.400 5759-5912/com.enflick.android.TextNow D/TextNow: [IncomingCallReporter] handleRegistrationCompleted() called
+2020-06-23 15:18:30.400 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Calling pending call targets..
+2020-06-23 15:18:30.400 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] callPendingTargets: number of targets to call: 1
+2020-06-23 15:18:30.400 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] makeOutgoingCall() called with: target = [+14242908378], uuid = [ac692afe-6eb2-4297-8c07-5d95b34da402]
+2020-06-23 15:18:30.400 5759-5912/com.enflick.android.TextNow D/TextNow: [SipClientEventReporter] reportOutgoingCallStarted() called
+2020-06-23 15:18:30.402 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.402   pjsua_call.c      pjsua_0  Making call with acc #0 to sip:+14242908378@stage.tncp.textnow.com
+2020-06-23 15:18:30.403 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.403    pjsua_aud.c      pjsua_0  Set sound device: capture=-1, playback=-2
+2020-06-23 15:18:30.403 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.403    pjsua_aud.c      pjsua_0  Opening sound device (speaker + mic) PCM@16000/1/20ms
+2020-06-23 15:18:30.403 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.403 android_jni_de      pjsua_0  Creating Android JNI stream
+2020-06-23 15:18:30.404 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.404 android_jni_de      pjsua_0  Using audio input source : 7
+2020-06-23 15:18:30.406 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_SIP_CLIENT_REGISTRATION without info
+2020-06-23 15:18:30.445 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.445 android_jni_de      pjsua_0  Audio record initialized successfully.
+2020-06-23 15:18:30.467 5759-6548/com.enflick.android.TextNow W/AudioTrack: Use of stream types is deprecated for operations other than volume control
+2020-06-23 15:18:30.467 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.467 android_jni_de      pjsua_0 !Audio track initialized successfully.
+2020-06-23 15:18:30.467 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.467 ec0x792ce2f4f0      pjsua_0  AEC created, clock_rate=16000, channel=1, samples per frame=320, tail length=200 ms, latency=0 ms
+2020-06-23 15:18:30.468 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.468 android_jni_de      pjsua_0 !Android JNI stream started
+2020-06-23 15:18:30.468 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.468  pjsua_media.c      pjsua_0  Call 0: initializing media..
+2020-06-23 15:18:30.470 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.470  pjsua_media.c      pjsua_0  RTP socket reachable at 192.168.0.103:23414
+2020-06-23 15:18:30.470 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.470  pjsua_media.c      pjsua_0  RTCP socket reachable at 192.168.0.103:23415
+2020-06-23 15:18:30.470 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.470  pjsua_media.c      pjsua_0  Media index 0 selected for audio call 0
+2020-06-23 15:18:30.471 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.471   pjsua_core.c      pjsua_0  TX 1023 bytes Request msg INVITE/cseq=25067 (tdta0x79ccf4c028) to UDP 52.203.74.121:5090:
+    INVITE sip:+14242908378@stage.tncp.textnow.com SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPjc06d829e-ae31-420d-9c85-2ba071c3c143
+    Max-Forwards: 70
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com
+    m: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@108.170.177.208:45526>
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25067 INVITE
+    Route: <sip:52.203.74.121:5090;lr>
+    k: replaces, 100rel, timer, norefersub
+    x: 1800
+    Min-SE: 90
+    User-Agent: TextNow PjSip 2.6/20.22.0.0
+    c: application/sdp
+    l:   359
+    
+    v=0
+    o=- 3801928710 3801928710 IN IP4 192.168.0.103
+    s=pjmedia
+    b=AS:117
+    t=0 0
+    a=X-nat:0
+    m=audio 23414 RTP/AVP 120 0 8 96
+    c=IN IP4 192.168.0.103
+    b=TIAS:96000
+    a=rtcp:23415 IN IP4 192.168.0.103
+    a=sendrecv
+    a=rtpmap:120 opus/48000/2
+    a=fmtp:120 useinbandfec=1
+    a=rtpmap:0 PCMU/8000
+    a=rtpmap:8 PCMA/8000
+    a=rtpmap:96 telephone-event/8000
+    a=fmtp:96 0-16
+    
+    --end msg--
+2020-06-23 15:18:30.472 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] notifyCallState() called with call number: 0, state: CALLING pjsip_inv_state: PJSIP_INV_STATE_CALLING
+2020-06-23 15:18:30.473 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] notifyCallState: setting SIP Call-ID on PjCall object (8556b8af-e594-4709-80b6-1416e9f1cf26)
+2020-06-23 15:18:30.473 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Attempting to stop ringback tone when not playing -- skipping.
+2020-06-23 15:18:30.473 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyCallState(), Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 callState: PJSIP_INV_STATE_CALLING
+2020-06-23 15:18:30.474 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] onCallStateChanged: unknown call state -- doing nothing
+2020-06-23 15:18:30.474 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [TRYING]
+2020-06-23 15:18:30.474 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:30.475 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Calling pending target was successful: 0
+2020-06-23 15:18:30.475 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Timed event not found, returning 0: CALL_DIALING_STATE
+2020-06-23 15:18:30.475 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Replacing event: CALL_TRYING_STATE
+2020-06-23 15:18:30.475 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TRYING]
+2020-06-23 15:18:30.475 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallStateChanged for state: TRYING
+2020-06-23 15:18:30.475 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [TRYING]
+2020-06-23 15:18:30.476 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.476 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.493 5759-5759/com.enflick.android.TextNow V/FragmentManager: Commit: BackStackEntry{27e039f}
+2020-06-23 15:18:30.493 5759-5759/com.enflick.android.TextNow D/FragmentManager:   mName=null mIndex=-1 mCommitted=false
+2020-06-23 15:18:30.493 5759-5759/com.enflick.android.TextNow D/FragmentManager:   Operations:
+2020-06-23 15:18:30.498 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:30.509 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TRYING], callType = [VOIP]
+2020-06-23 15:18:30.509 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged TRYING
+2020-06-23 15:18:30.521 5759-5759/com.enflick.android.TextNow V/FragmentManager: Run: BackStackEntry{27e039f}
+2020-06-23 15:18:30.522 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto ATTACHED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.522 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto CREATED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.522 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto CREATE_VIEW: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.522 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto ACTIVITY_CREATED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.522 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto RESTORE_VIEW_STATE: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.522 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto STARTED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.523 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto RESUMED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:30.529 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.529   pjsua_core.c      pjsua_0  RX 460 bytes Response msg 100/INVITE/cseq=25067 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 100 trying -- your call is important to us
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport=45526;branch=z9hG4bKPjc06d829e-ae31-420d-9c85-2ba071c3c143;received=108.170.177.208
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25067 INVITE
+    Server: sip-proxy1.tncp
+    Content-Length: 0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.532 5759-5912/com.enflick.android.TextNow D/TextNow: [SipClientEventReporter] reportOutboundCallTrying() called
+2020-06-23 15:18:30.532 5759-5912/com.enflick.android.TextNow D/TextNow: [OutgoingCallReporter] setSipCallId() called with: sipCallId = [8556b8af-e594-4709-80b6-1416e9f1cf26]
+2020-06-23 15:18:30.533 5759-5912/com.enflick.android.TextNow D/TextNow: [OutgoingCallRecord] setCallSuccessful() called
+2020-06-23 15:18:30.533 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] outgoing-calls-dev Record saved: {"registration_complete_at":511597567,"call_trying_at":511597701,"call_type":"voip","application_version":"20.22.0.0","call_placed_at":511597247,"device_model":"coral","registration_result":"success","client_type":"TN_ANDROID","registration_started_at":511597313,"created_at_wall_time":"2020-06-23 19:18:30.067","registrar_domain":"stage.tncp.textnow.com","version":2,"call_started_at":511597568,"call_id":"8556b8af-e594-4709-80b6-1416e9f1cf26","os_version":"11","used_a_hostname_lookup":"srv","last_recorded_event":"call_trying_at","sip_client":"pjsip","call_initiated_at":511597237,"outgoing_call_result":"success"}
+2020-06-23 15:18:30.546 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.545   pjsua_core.c      pjsua_0  RX 611 bytes Response msg 407/INVITE/cseq=25067 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 407 Proxy Authentication Required
+    v: SIP/2.0/UDP 108.170.177.208:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPjc06d829e-ae31-420d-9c85-2ba071c3c143
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com;tag=9f4fb164bac22e58e26533bb83b1111f.75170000
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25067 INVITE
+    Proxy-Authenticate: Digest realm="stage.tncp.textnow.com", nonce="XvJWs17yVYfRea4Jcr9VE3TQ8pgkCLu3", qop="auth"
+    Server: sip-dialog1.tncp
+    Content-Length: 0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.547 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.546   pjsua_core.c      pjsua_0  TX 490 bytes Request msg ACK/cseq=25067 (tdta0x79ccf944a8) to UDP 52.203.74.121:5090:
+    ACK sip:+14242908378@stage.tncp.textnow.com SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPjc06d829e-ae31-420d-9c85-2ba071c3c143
+    Max-Forwards: 70
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com;tag=9f4fb164bac22e58e26533bb83b1111f.75170000
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25067 ACK
+    Route: <sip:52.203.74.121:5090;lr>
+    l:  0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.548 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.548 tsx0x799cdc876      pjsua_0  Temporary failure in sending Request msg INVITE/cseq=25068 (tdta0x79ccf4c028), will try next server: Unsuitable transport selected (PJSIP_ETPNOTSUITABLE)
+2020-06-23 15:18:30.549 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.548   pjsua_core.c      pjsua_0  TX 1356 bytes Request msg INVITE/cseq=25068 (tdta0x79ccf4c028) to UDP 52.203.74.121:5090:
+    INVITE sip:+14242908378@stage.tncp.textnow.com SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPj26842181-921f-4eaf-a3ea-0eb1559a762e
+    Max-Forwards: 70
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com
+    m: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@108.170.177.208:45526>
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25068 INVITE
+    Route: <sip:52.203.74.121:5090;lr>
+    k: replaces, 100rel, timer, norefersub
+    x: 1800
+    Min-SE: 90
+    User-Agent: TextNow PjSip 2.6/20.22.0.0
+    Proxy-Authorization: Digest username="19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK", realm="stage.tncp.textnow.com", nonce="XvJWs17yVYfRea4Jcr9VE3TQ8pgkCLu3", uri="sip:+14242908378@stage.tncp.textnow.com", response="ed54305bbd8d40aed17b3f3bb8ee2ec2", cnonce="86e0d954-2549-4ad2-ac84-6e296cdd5482", qop=auth, nc=00000001
+    c: application/sdp
+    l:   359
+    
+    v=0
+    o=- 3801928710 3801928710 IN IP4 192.168.0.103
+    s=pjmedia
+    b=AS:117
+    t=0 0
+    a=X-nat:0
+    m=audio 23414 RTP/AVP 120 0 8 96
+    c=IN IP4 192.168.0.103
+    b=TIAS:96000
+    a=rtcp:23415 IN IP4 192.168.0.103
+    a=sendrecv
+    a=rtpmap:120 opus/48000/2
+    a=fmtp:120 useinbandfec=1
+    a=rtpmap:0 PCMU/8000
+    a=rtpmap:8 PCMA/8000
+    a=rtpmap:96 telephone-event/8000
+    a=fmtp:96 0-16
+    
+    --end msg--
+2020-06-23 15:18:30.616 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.615   pjsua_core.c      pjsua_0  RX 460 bytes Response msg 100/INVITE/cseq=25068 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 100 trying -- your call is important to us
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport=45526;branch=z9hG4bKPj26842181-921f-4eaf-a3ea-0eb1559a762e;received=108.170.177.208
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25068 INVITE
+    Server: sip-proxy1.tncp
+    Content-Length: 0
+    
+    
+    --end msg--
+2020-06-23 15:18:30.637 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.636   pjsua_core.c      pjsua_0  RX 856 bytes Response msg 180/INVITE/cseq=25068 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 180 Ringing
+    v: SIP/2.0/UDP 108.170.177.208:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPj26842181-921f-4eaf-a3ea-0eb1559a762e
+    Record-Route:<sip:10.231.33.77;lr=on;did=056.df72>,<sip:10.231.33.44;r2=on;lr>,<sip:52.203.74.121:5090;r2=on;lr>
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t:sip:+14242908378@stage.tncp.textnow.com;tag=cQBtcN0tBUDSB
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25068 INVITE
+    m:<sip:+14242908378@10.231.40.224:4060;transport=udp>
+    User-Agent:internal
+    Accept:application/sdp
+    Allow:INVITE,ACK,BYE,CANCEL,OPTIONS,MESSAGE,INFO,UPDATE,REGISTER,REFER,NOTIFY
+    k:path,replaces
+    u:talk,hold,conference,refer
+    l:0
+    Remote-Party-ID:"+14242908378"<sip:+14242908378@stage.tncp.textnow.com>;party=calling;privacy=off;screen=no
+    
+    
+    --end msg--
+2020-06-23 15:18:30.639 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] notifyCallState() called with call number: 0, state: EARLY pjsip_inv_state: PJSIP_INV_STATE_EARLY
+2020-06-23 15:18:30.639 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Outbound call -- playing ringback tone.
+2020-06-23 15:18:30.640 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Outbound call -- playing ringback tone.
+2020-06-23 15:18:30.643 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.642    pjsua_aud.c      pjsua_0  Conf connect: 1 --> 0
+2020-06-23 15:18:30.643 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:30.643   conference.c      pjsua_0  Port 1 (tonegen) transmitting to port 0 (Android JNI)
+2020-06-23 15:18:30.644 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyCallState(), Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 callState: PJSIP_INV_STATE_EARLY
+2020-06-23 15:18:30.644 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] onCallStateChanged: unknown call state -- doing nothing
+2020-06-23 15:18:30.645 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [RINGING]
+2020-06-23 15:18:30.645 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:30.647 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Event: CALL_TRYING_STATE [172, [Call State, RINGING, Call ID, ac692afe-6eb2-4297-8c07-5d95b34da402, Call Type, VOIP, Contact: , +14242908378, Is Outgoing Call?, true]]
+2020-06-23 15:18:30.648 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] transitions-dev Record saved: {"call_uuid":"8556b8af-e594-4709-80b6-1416e9f1cf26","created_at":"2020-06-23 19:18:30.474","from_network":"CALL_DIALING_STATE","is_successful":true,"time_taken_ms":0,"to_network":"CALL_TRYING_STATE"}
+2020-06-23 15:18:30.648 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [RINGING]
+2020-06-23 15:18:30.648 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallStateChanged for state: RINGING
+2020-06-23 15:18:30.649 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [RINGING]
+2020-06-23 15:18:30.649 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] transitions-dev Record saved: {"call_uuid":"8556b8af-e594-4709-80b6-1416e9f1cf26","created_at":"2020-06-23 19:18:30.647","from_network":"CALL_TRYING_STATE","is_successful":true,"time_taken_ms":172,"to_network":"CALL_RINGING"}
+2020-06-23 15:18:30.649 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [RINGING]
+2020-06-23 15:18:30.649 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [RINGING]
+2020-06-23 15:18:30.649 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.649 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:30.651 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [RINGING], callType = [VOIP]
+2020-06-23 15:18:30.652 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_OUTBOUND_CALL_VOIP, value=0.0, info=}
+2020-06-23 15:18:30.652 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged RINGING
+2020-06-23 15:18:30.652 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_OUTBOUND_CALL_VOIP
+2020-06-23 15:18:30.667 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_OUTBOUND_CALL_VOIP without info
+2020-06-23 15:18:31.765 5759-5872/com.enflick.android.TextNow V/FA: Connecting to remote service
+2020-06-23 15:18:31.826 5759-5872/com.enflick.android.TextNow D/FA: Connected to remote service
+2020-06-23 15:18:31.826 5759-5872/com.enflick.android.TextNow V/FA: Processing queued up service tasks: 1
+2020-06-23 15:18:33.741 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:33.760 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:36.682 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.680   pjsua_core.c      pjsua_0  RX 1262 bytes Response msg 200/INVITE/cseq=25068 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 200 OK
+    v: SIP/2.0/UDP 108.170.177.208:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPj26842181-921f-4eaf-a3ea-0eb1559a762e
+    Record-Route:<sip:10.231.33.77;lr=on;did=056.df72>,<sip:10.231.33.44;r2=on;lr>,<sip:52.203.74.121:5090;r2=on;lr>
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t:sip:+14242908378@stage.tncp.textnow.com;tag=cQBtcN0tBUDSB
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25068 INVITE
+    m:<sip:+14242908378@10.231.40.224:4060;transport=udp>
+    User-Agent:internal
+    Allow:INVITE,ACK,BYE,CANCEL,OPTIONS,MESSAGE,INFO,UPDATE,REGISTER,REFER,NOTIFY
+    k:path,replaces
+    u:talk,hold,conference,refer
+    c:application/sdp
+    Content-Disposition:session
+    l:335
+    X-UUID:1b10ea51-9299-424d-a543-25f8f22c51c7
+    Remote-Party-ID:"Outbound Call"<sip:9938214242908378@stage.tncp.textnow.com>;party=calling;privacy=off;screen=no
+    
+    v=0
+    o=FreeSWITCH 1592911009 1592911010 IN IP4 35.169.68.198
+    s=FreeSWITCH
+    c=IN IP4 35.169.68.198
+    t=0 0
+    m=audio 28908 RTP/AVP 120 96
+    a=rtpmap:120 opus/48000/2
+    a=fmtp:120 useinbandfec=1; maxaveragebitrate=14400; maxplaybackrate=8000
+    a=rtpmap:96 telephone-event/8000
+    a=fmtp:96 0-16
+    a=ptime:20
+    a=rtcp:28909 IN IP4 35.169.68.198
+    
+    --end msg--
+2020-06-23 15:18:36.687 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] notifyCallState() called with call number: 0, state: CONNECTING pjsip_inv_state: PJSIP_INV_STATE_CONNECTING
+2020-06-23 15:18:36.687 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.687    pjsua_aud.c      pjsua_0  Conf disconnect: 1 -x- 0
+2020-06-23 15:18:36.688 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Stopping playing ringback tone.
+2020-06-23 15:18:36.688 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.688   conference.c      pjsua_0  Port 1 (tonegen) stop transmitting to port 0 (Android JNI)
+2020-06-23 15:18:36.689 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyCallState(), Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 callState: PJSIP_INV_STATE_CONNECTING
+2020-06-23 15:18:36.690 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] onCallStateChanged: unknown call state -- doing nothing
+2020-06-23 15:18:36.690 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.689  pjsua_media.c      pjsua_0  Call 0: updating media..
+2020-06-23 15:18:36.690 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [RINGING]
+2020-06-23 15:18:36.691 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:36.691 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.691    pjsua_aud.c      pjsua_0  Audio channel update..
+2020-06-23 15:18:36.691 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Replacing event: CALL_RINGING
+2020-06-23 15:18:36.691 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Timed event not found, returning 0: CALL_TRYING_STATE
+2020-06-23 15:18:36.692 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.691         opus.c      pjsua_0  factory_alloc_codec:523: - TRACE
+2020-06-23 15:18:36.693 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.693         opus.c      pjsua_0  codec_open:596: - TRACE
+2020-06-23 15:18:36.694 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [RINGING]
+2020-06-23 15:18:36.694 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.694         opus.c      pjsua_0  codec_open:673: sample_rate: 8000
+2020-06-23 15:18:36.695 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallStateChanged for state: RINGING
+2020-06-23 15:18:36.695 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.695         opus.c      pjsua_0  codec_modify:771: - TRACE
+2020-06-23 15:18:36.696 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [RINGING]
+2020-06-23 15:18:36.696 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] transitions-dev Record saved: {"call_uuid":"8556b8af-e594-4709-80b6-1416e9f1cf26","created_at":"2020-06-23 19:18:36.690","from_network":"CALL_TRYING_STATE","is_successful":true,"time_taken_ms":0,"to_network":"CALL_RINGING"}
+2020-06-23 15:18:36.697 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [RINGING]
+2020-06-23 15:18:36.697 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [RINGING]
+2020-06-23 15:18:36.697 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.697 strm0x79bcdf0b      pjsua_0  Encoder stream started
+2020-06-23 15:18:36.697 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:36.698 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:36.698 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.698 strm0x79bcdf0b      pjsua_0  Decoder stream started
+2020-06-23 15:18:36.701 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [RINGING], callType = [VOIP]
+2020-06-23 15:18:36.701 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_OUTBOUND_CALL_VOIP, value=0.0, info=}
+2020-06-23 15:18:36.701 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.701  pjsua_media.c      pjsua_0  Audio updated, stream #0: opus (sendrecv)
+2020-06-23 15:18:36.702 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged RINGING
+2020-06-23 15:18:36.702 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_OUTBOUND_CALL_VOIP
+2020-06-23 15:18:36.702 5759-5912/com.enflick.android.TextNow D/TextNow: [PjCall] onStreamCreated() -- org.pjsip.pjsua2.SWIGTYPE_p_void@c0c62c  idx = 0
+2020-06-23 15:18:36.705 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.705    pjsua_aud.c      pjsua_0  Conf connect: 0 --> 2
+2020-06-23 15:18:36.706 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.706   conference.c      pjsua_0  Port 0 (Android JNI) transmitting to port 2 (sip:+14242908378@stage.tncp.textnow.com)
+2020-06-23 15:18:36.706 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.706    pjsua_aud.c      pjsua_0  Conf connect: 2 --> 0
+2020-06-23 15:18:36.706 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.706   conference.c      pjsua_0  Port 2 (sip:+14242908378@stage.tncp.textnow.com) transmitting to port 0 (Android JNI)
+2020-06-23 15:18:36.708 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:36.708   pjsua_core.c      pjsua_0  TX 557 bytes Request msg ACK/cseq=25068 (tdta0x79cd1f2a68) to UDP 52.203.74.121:5090:
+    ACK sip:+14242908378@10.231.40.224:4060;transport=udp SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPjab994dc0-af4a-4e69-aac8-71a2a10f404d
+    Max-Forwards: 70
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com;tag=cQBtcN0tBUDSB
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25068 ACK
+    Route: <sip:52.203.74.121:5090;lr;r2=on>
+    Route: <sip:10.231.33.44;lr;r2=on>
+    Route: <sip:10.231.33.77;lr;did=056.df72>
+    l:  0
+    
+    
+    --end msg--
+2020-06-23 15:18:36.712 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] notifyCallState() called with call number: 0, state: CONFIRMED pjsip_inv_state: PJSIP_INV_STATE_CONFIRMED
+2020-06-23 15:18:36.713 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Attempting to stop ringback tone when not playing -- skipping.
+2020-06-23 15:18:36.714 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyCallState(), Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 callState: PJSIP_INV_STATE_CONFIRMED
+2020-06-23 15:18:36.719 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_OUTBOUND_CALL_VOIP without info
+2020-06-23 15:18:36.724 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyCallMediaState(callId: ac692afe-6eb2-4297-8c07-5d95b34da402, isHeld: false)
+2020-06-23 15:18:36.983 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - AudioRoute changed to: Receiver
+2020-06-23 15:18:36.984 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - updateAudioButton: 'speaker toggle' mode...
+2020-06-23 15:18:36.987 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [ESTABLISHED]
+2020-06-23 15:18:36.988 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:36.989 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallEstablished - ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:37.010 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] mMosScoreThreshold: 3.0, mMosFilterWindowSize: 5, mMosFilterMaxSamplesBelowThreshold: 5, mNumMosSamplesToSkipAfterTransition: 5
+2020-06-23 15:18:37.011 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] Initialized CallStateMachine.
+2020-06-23 15:18:37.012 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] Other party's phone number: +14242908378
+2020-06-23 15:18:37.012 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] Our phone number: 9204623541
+2020-06-23 15:18:37.012 5759-5912/com.enflick.android.TextNow D/TextNow: [MidCallPSTNHandover] CDMA Fallback is not enabled for this profile.
+2020-06-23 15:18:37.013 5759-5912/com.enflick.android.TextNow D/TextNow: [MidCallPSTNHandover] This feature is not allowed for this user
+2020-06-23 15:18:37.013 5759-5912/com.enflick.android.TextNow D/TextNow: [MidCallPSTNHandover] CDMA Fallback is not enabled for this profile.
+2020-06-23 15:18:37.013 5759-5912/com.enflick.android.TextNow D/TextNow: [MidCallPSTNHandover] This feature is not allowed for this user
+2020-06-23 15:18:37.044 5759-5759/com.enflick.android.TextNow W/System.err: SLF4J: Defaulting to no-operation (NOP) logger implementation
+2020-06-23 15:18:37.044 5759-5759/com.enflick.android.TextNow W/System.err: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2020-06-23 15:18:37.090 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Event: CALL_STATE_MACHINE [Enabled. Log: From:9204623541 To:+14242908378 WiFi-to-Data:true Data to GSM/CDMA:false Auto-answer Type: AUTO_ANSWER_CALL_NOT_SUPPORTED Client MDN: +16099928565 Server MDN: ]
+2020-06-23 15:18:37.091 5759-5759/com.enflick.android.TextNow D/CompatibilityChangeReporter: Compat change id reported: 147798919; UID 10306; state: DISABLED
+2020-06-23 15:18:37.105 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] From:9204623541 To:+14242908378 WiFi-to-Data:true Data to GSM/CDMA:false Auto-answer Type: AUTO_ANSWER_CALL_NOT_SUPPORTED Client MDN: +16099928565 Server MDN:
+2020-06-23 15:18:37.106 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachine] onCallEstablished: with bearer WIFI
+2020-06-23 15:18:37.106 5759-5912/com.enflick.android.TextNow D/TextNow: [IncomingCallReporter] handleCallAccepted() called with: call from = [ +14242908378 ]
+2020-06-23 15:18:37.107 5759-5912/com.enflick.android.TextNow D/TextNow: [CallRecordReporter] endCallRecord() called with: callId = [ 8556b8af-e594-4709-80b6-1416e9f1cf26 ], runWithCallRecord = [ Function1<com.enflick.android.phone.callmonitor.diagnostics.CallRecord, kotlin.Unit> ]
+2020-06-23 15:18:37.107 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] CSM (8556b8af-e594-4709-80b6-1416e9f1cf26,ac692afe-6eb2-4297-8c07-5d95b34da402): stateCallEstablishing -> stateVoipWifiWaitForData, ESTABLISHED_WIFI, with mIsOtherNetworkGoodEnough: false
+2020-06-23 15:18:37.107 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] Call established on Wifi
+2020-06-23 15:18:37.107 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] Call established - requesting modem ON in 10000 ms
+2020-06-23 15:18:37.108 5759-5912/com.enflick.android.TextNow D/TextNow: [CallTime] reset timer...
+2020-06-23 15:18:37.108 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] reportCallEstablished() called
+2020-06-23 15:18:37.108 5759-5912/com.enflick.android.TextNow V/TextNow: [EventReporter] reportCallingEvent() called with: event = [CALL_ESTABLISHED], classTag = [CallManager], stacktrace = [[com.enflick.android.phone.callmonitor.diagnostics.EventReporter.reportCallingEvent(EventReporter.kt:31), com.enflick.android.TextNow.tncalling.CallManager.reportCallEstablished(CallManager.java:3033), com.enflick.android.TextNow.tncalling.CallManager.onCallEstablishedHelper(CallManager.java:1828)]]
+2020-06-23 15:18:37.109 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Event: CALL_ESTABLISHED [CallManager, []]
+2020-06-23 15:18:37.109 5759-5912/com.enflick.android.TextNow V/TextNow: [CallManager] Call established -- enabling CallDiagnostics for call with id: ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:37.109 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Starting call diagnostics for callId: ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:37.110 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] calls-dev Record saved: {"created_at":"2020-06-23 19:18:37","http_response_status":200,"event_source":"client","username":"karn","client_type":"TN_ANDROID","client_version":"20.22.0.0","country_code":"","call_direction":"outgoing","call_duration":0,"from_username":"karn","call_status":"answered","from":"+19204623541","to":"+14242908378"}
+2020-06-23 15:18:37.112 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] startMonitoringCall: created CallData for new call: bundle data: Bundle[{last_network=WIFI, sip_call_id=8556b8af-e594-4709-80b6-1416e9f1cf26, client_call_id=ac692afe-6eb2-4297-8c07-5d95b34da402, call_type=VOIP, sip_registrar_endpoint=52.203.74.121:5090, start_of_call_volume=6, codec=opus/8000, call_start_time=1592939917108, sip_client_name=pjsip, call_direction=Outgoing, start_of_call_mute=false, reporting_id=8556b8af-e594-4709-80b6-1416e9f1cf26, sip_registrar_domain=stage.tncp.textnow.com, max_call_volume=7}]	transitionedToFallback: false
+2020-06-23 15:18:37.112 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] **************************Call Started**************************
+2020-06-23 15:18:37.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] App Version: 20.22.0.0
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] coral   unknown
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Account Information: false   null
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] 
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Manufacturer: Google
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Model: Pixel 4 XL
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] OS: 11
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] 
+2020-06-23 15:18:37.138 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Phone type: GSM, Carrier: Bell, Network type: 18
+2020-06-23 15:18:37.139 5759-5759/com.enflick.android.TextNow D/CompatibilityChangeReporter: Compat change id reported: 147600208; UID 10306; state: DISABLED
+2020-06-23 15:18:37.144 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [ESTABLISHED]
+2020-06-23 15:18:37.145 5759-5912/com.enflick.android.TextNow V/TextNow: [CallManager] Call established -- sending CallService start intent.
+2020-06-23 15:18:37.145 5759-5912/com.enflick.android.TextNow V/TextNow: [CallService] Getting CallService intent for action: com.enflick.android.TextNow.action.start_service_foreground_established_call
+2020-06-23 15:18:37.146 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallStateChanged for state: ESTABLISHED
+2020-06-23 15:18:37.147 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [ESTABLISHED]
+2020-06-23 15:18:37.147 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateCallStateBanner() called with: state = [ESTABLISHED]
+2020-06-23 15:18:37.148 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:37.148 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:37.149 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [ESTABLISHED], callType = [VOIP]
+2020-06-23 15:18:37.153 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallHoldStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], holdState = [Active]
+2020-06-23 15:18:37.154 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] Call hold state changed for id: ac692afe-6eb2-4297-8c07-5d95b34da402 to Active
+2020-06-23 15:18:37.154 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:37.154 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:37.156 5759-5912/com.enflick.android.TextNow D/TextNow: [CallHeartbeatService] onCallHoldStateChanged() called with: context = [com.enflick.android.TextNow.TextNowDebugApp@a1dbb43], holdState = [Active], isCallConference = [false]
+2020-06-23 15:18:37.158 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged ESTABLISHED
+2020-06-23 15:18:37.158 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Removing incoming call notification
+2020-06-23 15:18:37.159 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Asked to stop ringing
+2020-06-23 15:18:37.159 5759-5912/com.enflick.android.TextNow D/TextNow: [Ringer] Is phone ringtone playing? : false
+2020-06-23 15:18:37.160 5759-5912/com.enflick.android.TextNow D/TextNow: [Ringer] Is phone vibrating? : false
+2020-06-23 15:18:37.161 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [ESTABLISHED]
+2020-06-23 15:18:37.162 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:37.163 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallEstablished - ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:37.165 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallHoldStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], holdState = [Active]
+2020-06-23 15:18:37.166 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] Call hold state changed for id: ac692afe-6eb2-4297-8c07-5d95b34da402 to Active
+2020-06-23 15:18:37.167 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateInCallDetailsForPhoneCall: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:37.167 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] updateMinsRemaining: ac692afe-6eb2-4297-8c07-5d95b34da402 isConference: false
+2020-06-23 15:18:37.168 5759-5912/com.enflick.android.TextNow D/TextNow: [CallHeartbeatService] onCallHoldStateChanged() called with: context = [com.enflick.android.TextNow.TextNowDebugApp@a1dbb43], holdState = [Active], isCallConference = [false]
+2020-06-23 15:18:37.168 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged ESTABLISHED
+2020-06-23 15:18:37.168 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Removing incoming call notification
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Asked to stop ringing
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [Ringer] Is phone ringtone playing? : false
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [Ringer] Is phone vibrating? : false
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] onReceive() - android.media.ACTION_SCO_AUDIO_STATE_UPDATED
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] prevState = -1
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] state     = 0
+2020-06-23 15:18:37.169 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] actionScoAudioStateUpdated RECEIVER
+2020-06-23 15:18:37.183 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] CallService received command from intent: Intent { act=com.enflick.android.TextNow.action.start_service_foreground_established_call cmp=com.enflick.android.TextNow/.tncalling.CallService }
+2020-06-23 15:18:37.184 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] CallService intent received for start foreground for established call
+2020-06-23 15:18:37.184 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] getCurrentCallState() called
+2020-06-23 15:18:37.185 5759-5912/com.enflick.android.TextNow E/TextNow: [ContactUtils] Permission is missing
+2020-06-23 15:18:37.186 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] getIntentToCall() called with: host = [com.enflick.android.TextNow.tncalling.CallService@a81da00], contact = [null]
+2020-06-23 15:18:37.333 5759-6564/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:37.333         opus.c android_trac  codec_modify:771: - TRACE
+2020-06-23 15:18:38.144 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Updating call diagnostics for local Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 after 1000ms
+2020-06-23 15:18:38.148 5759-5912/com.enflick.android.TextNow V/TextNow: [PjUtils] rx bytes:590 disc=0 dup=0 jit=0,0 loss=0 lP=0us,0us lb=0 lr=0 pkt=20 re=0 upd=1592939917.928s updC=6
+2020-06-23 15:18:38.149 5759-5912/com.enflick.android.TextNow V/TextNow: [PjUtils] tx bytes:240 disc=0 dup=0 jit=0,0 loss=0 lP=0us,0us lb=0 lr=0 pkt=71 re=0 upd=0.0s updC=0
+2020-06-23 15:18:38.149 5759-5912/com.enflick.android.TextNow V/TextNow: [CallStats] Calculating call stats: [mos: 4.359843279296876 oneWayLatency: 75.0 packetLoss: 0.0 jitter: 0.0 totalPacketsSent: 71 totalPacketsReceived: 20 periodSent: 71 periodReceived: 20 sequenceNumber: 0 period: 1000 incomingOctetCount: 590 outgoingOctetCount: 240 network: null]
+2020-06-23 15:18:38.150 5759-5912/com.enflick.android.TextNow V/TextNow: [CallDiagnostics] Call stats received: mos: 4.359843279296876 oneWayLatency: 75.0 packetLoss: 0.0 jitter: 0.0 totalPacketsSent: 71 totalPacketsReceived: 20 periodSent: 71 periodReceived: 20 sequenceNumber: 0 period: 1000 incomingOctetCount: 590 outgoingOctetCount: 240 network: WIFI
+2020-06-23 15:18:38.152 5759-5912/com.enflick.android.TextNow V/TextNow: [CallStateMachineV3] onQosUpdate - mos: 4.360 latency: 75.000 packet loss: 0.000, jitter: 0.00
+2020-06-23 15:18:38.152 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] Skipping this sample
+2020-06-23 15:18:38.754 5759-6564/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:38.754   Master/sound android_trac  Underflow, buf_cnt=0, will generate 1 frame
+2020-06-23 15:18:38.834 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] hangupCurrentCall() called
+2020-06-23 15:18:38.834 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] hangupCall() called with: callID = [ac692afe-6eb2-4297-8c07-5d95b34da402]
+2020-06-23 15:18:38.835 5759-5912/com.enflick.android.TextNow I/TextNow: [PjInstance] Hanging up ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:38.835 5759-5912/com.enflick.android.TextNow D/TextNow: [PjCall] hanging up call ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:38.835 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:38.835   pjsua_call.c thr0x77300ac !Call 0 hanging up: code=200..
+2020-06-23 15:18:38.836 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:38.836   pjsua_core.c thr0x77300ac  TX 598 bytes Request msg BYE/cseq=25069 (tdta0x79cd20abe8) to UDP 52.203.74.121:5090:
+    BYE sip:+14242908378@10.231.40.224:4060;transport=udp SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPjdf901d91-922b-463c-b037-0f4a65c1efcf
+    Max-Forwards: 70
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com;tag=cQBtcN0tBUDSB
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25069 BYE
+    Route: <sip:52.203.74.121:5090;lr;r2=on>
+    Route: <sip:10.231.33.44;lr;r2=on>
+    Route: <sip:10.231.33.77;lr;did=056.df72>
+    User-Agent: TextNow PjSip 2.6/20.22.0.0
+    l:  0
+    
+    
+    --end msg--
+2020-06-23 15:18:38.899 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:38.899   pjsua_core.c      pjsua_0  RX 517 bytes Response msg 200/BYE/cseq=25069 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 200 OK
+    v: SIP/2.0/UDP 108.170.177.208:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPjdf901d91-922b-463c-b037-0f4a65c1efcf
+    f: sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com;tag=bdb85211-d26e-40ad-99a8-55907065a4a2
+    t: sip:+14242908378@stage.tncp.textnow.com;tag=cQBtcN0tBUDSB
+    i: 8556b8af-e594-4709-80b6-1416e9f1cf26
+    CSeq: 25069 BYE
+    User-Agent:internal
+    Allow:INVITE,ACK,BYE,CANCEL,OPTIONS,MESSAGE,INFO,UPDATE,REGISTER,REFER,NOTIFY
+    k:path,replaces
+    l:0
+    
+    
+    --end msg--
+2020-06-23 15:18:38.901 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:38.901  pjsua_media.c      pjsua_0  Call 0: deinitializing media..
+2020-06-23 15:18:38.901 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] notifyCallState() called with call number: 0, state: DISCONNCTD pjsip_inv_state: PJSIP_INV_STATE_DISCONNECTED
+2020-06-23 15:18:38.901 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] Attempting to stop ringback tone when not playing -- skipping.
+2020-06-23 15:18:38.901 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] notifyCallState(), Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 callState: PJSIP_INV_STATE_DISCONNECTED
+2020-06-23 15:18:38.902 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] No more established calls -- resetting InCallAudioManager state
+2020-06-23 15:18:38.902 5759-5912/com.enflick.android.TextNow D/TextNow: [PjCall] onStreamDestroyed() -- org.pjsip.pjsua2.SWIGTYPE_p_void@326e289  idx = 0
+2020-06-23 15:18:38.902 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:38.902  pjsua_media.c      pjsua_0  Media stream call00:0 is destroyed
+2020-06-23 15:18:39.133 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] setAudioRoute() -- RECEIVER -- current: RECEIVER
+2020-06-23 15:18:39.133 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallAudioManager] C setSpeakerphoneOn(false)
+2020-06-23 15:18:39.134 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - AudioRoute changed to: Receiver
+2020-06-23 15:18:39.134 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] - updateAudioButton: 'speaker toggle' mode...
+2020-06-23 15:18:39.135 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallStateChanged(): Local Call-ID = [ac692afe-6eb2-4297-8c07-5d95b34da402], callState = [TERMINATED]
+2020-06-23 15:18:39.135 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] Note: Current active call ID is ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:39.135 5759-5912/com.enflick.android.TextNow D/TextNow: [EventReporter] Event: CALL_STATE_MACHINE [Call Ended, TERMINATED, Call ID, ac692afe-6eb2-4297-8c07-5d95b34da402, Call Type, VOIP, Contact: , +14242908378, Is Outgoing Call?, true, Duration, 1001]
+2020-06-23 15:18:39.136 5759-5912/com.enflick.android.TextNow D/TextNow: [CallTime] cancelTimer()...
+2020-06-23 15:18:39.136 5759-5912/com.enflick.android.TextNow D/TextNow: [CallTime] reset timer...
+2020-06-23 15:18:39.136 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TERMINATED]
+2020-06-23 15:18:39.136 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallStateChanged for state: TERMINATED
+2020-06-23 15:18:39.136 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] onCallStateChanged() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], state = [TERMINATED], callType = [VOIP]
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onCallEnded() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402], callDisposition = [TERMINATED]
+2020-06-23 15:18:39.137 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=Event Call Duration VOIP, value=2.0, info=}
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallTime] cancelTimer()...
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallTime] reset timer...
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [IncomingCallReporter] handleCallDisposed() called with: call from = [ +14242908378 ], callDisposition = [ USER_HUNGUP ]
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallRecordReporter] endCallRecord() called with: callId = [ 8556b8af-e594-4709-80b6-1416e9f1cf26 ], runWithCallRecord = [ Function1<com.enflick.android.phone.callmonitor.diagnostics.CallRecord, kotlin.Unit> ]
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachine] onCallEnded()
+2020-06-23 15:18:39.137 5759-5912/com.enflick.android.TextNow D/TextNow: [CallStateMachineV3] CSM (8556b8af-e594-4709-80b6-1416e9f1cf26,ac692afe-6eb2-4297-8c07-5d95b34da402): stateVoipWifiWaitForData -> stateCallEnded, ENDED, with mIsOtherNetworkGoodEnough: false
+2020-06-23 15:18:39.138 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: Event Call Duration VOIP
+2020-06-23 15:18:39.138 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] Unable to unregister callback.
+2020-06-23 15:18:39.138 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] java.lang.IllegalArgumentException: NetworkCallback was not registered
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.android.internal.util.Preconditions.checkArgument(Preconditions.java:52)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at android.net.ConnectivityManager.unregisterNetworkCallback(ConnectivityManager.java:4184)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.TextNow.TNFoundation.modemkeepalive.ModemKeepAliveLollipop.setState(ModemKeepAliveLollipop.java:89)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.TextNow.TNFoundation.modemkeepalive.ModemKeepAlive.requestModemState(ModemKeepAlive.java:77)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.phone.callmonitor.callstatemachine.CallStateMachineV3$1$1.execute(CallStateMachineV3.java:135)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.phone.callmonitor.callstatemachine.CallStateMachineV3$1$1.execute(CallStateMachineV3.java:121)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.phone.callmonitor.callstatemachine.CallStateMachineV3$13.execute(CallStateMachineV3.java:821)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.phone.callmonitor.callstatemachine.CallStateMachineV3$13.execute(CallStateMachineV3.java:817)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at org.statefulj.fsm.FSM.executeAction(FSM.java:228)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at org.statefulj.fsm.FSM.transition(FSM.java:196)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at org.statefulj.fsm.FSM.onEvent(FSM.java:116)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.phone.callmonitor.callstatemachine.CallStateMachine.onCallEnded(CallStateMachine.java:425)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.TextNow.tncalling.CallManager.onCallEnded(CallManager.java:1924)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.TextNow.tncalling.CallManager.onCallStateChanged(CallManager.java:2542)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.enflick.android.TextNow.client.PjSipClient$8.run(PjSipClient.java:799)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at android.os.Handler.handleCallback(Handler.java:938)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at android.os.Handler.dispatchMessage(Handler.java:99)
+2020-06-23 15:18:39.139 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at android.os.Looper.loop(Looper.java:223)
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at java.lang.reflect.Method.invoke(Native Method)
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:592)
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow E/TextNow: [ModemKeepAliveLollipop] 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:941)
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow W/TextNow: [ModemKeepAlive] Could not set the modem state to MODEM_STATE_OFF
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: Event Call Duration
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: Event Wifi Transitions
+2020-06-23 15:18:39.140 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] mMidCallPSTNHandoverEnabled = [false] and missed is [false]
+2020-06-23 15:18:39.141 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_REDIAL
+2020-06-23 15:18:39.141 5759-5912/com.enflick.android.TextNow V/TextNow: [CallManager] Saving call details for id = [ac692afe-6eb2-4297-8c07-5d95b34da402]: {"call_duration_ms":2029,"call_end_time":"2020-06-23 19:18:39.137","call_missed":false,"call_start_time":"2020-06-23 19:18:37.108","call_uuid":"8556b8af-e594-4709-80b6-1416e9f1cf26","carrier":"Bell","client_type":"TN_ANDROID","client_version":"20.22.0.0","destination":"+14242908378","device_manufacturer":"Google","device_model":"coral","direction":"outgoing","geolocation_accuracy_m":0.0,"geolocation_latitude":0.0,"geolocation_longitude":0.0,"initialized_over_voip":true,"is_conference":false,"is_subscriber":false,"os_version":"30","redial_counter":0,"username":"karn","volume_in_dB":0.0,"volume_out_dB":0.0}
+2020-06-23 15:18:39.144 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Updating call diagnostics for local Call-ID: ac692afe-6eb2-4297-8c07-5d95b34da402 after 1000ms
+2020-06-23 15:18:39.144 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] calldetails-dev Record saved: {"call_duration_ms":2029,"call_end_time":"2020-06-23 19:18:39.137","call_missed":false,"call_start_time":"2020-06-23 19:18:37.108","call_uuid":"8556b8af-e594-4709-80b6-1416e9f1cf26","carrier":"Bell","client_type":"TN_ANDROID","client_version":"20.22.0.0","destination":"+14242908378","device_manufacturer":"Google","device_model":"coral","direction":"outgoing","geolocation_accuracy_m":0.0,"geolocation_latitude":0.0,"geolocation_longitude":0.0,"initialized_over_voip":true,"is_conference":false,"is_subscriber":false,"os_version":"30","redial_counter":0,"username":"karn","volume_in_dB":0.0,"volume_out_dB":0.0}
+2020-06-23 15:18:39.144 5759-5912/com.enflick.android.TextNow V/TextNow: [PjCall] Invalid index provided -- no available call stats.
+2020-06-23 15:18:39.144 5759-5912/com.enflick.android.TextNow E/TextNow: [CallDiagnostics] Could not get call stats for callId: ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:39.147 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] networkdetails-dev Record saved: {"call_uuid":"8556b8af-e594-4709-80b6-1416e9f1cf26","codec":"opus/8000","duration_ms":1995,"end_time":"2020-06-23 19:18:39.143","ip":"FE80::8A93:1FF7:54C5:F1D0","jitter_mean":0.0,"latency_mean":75.0,"mos_mean":4.359843279296876,"network":"wifi","packet_loss_mean":0.0,"start_time":"2020-06-23 19:18:37.148"}
+2020-06-23 15:18:39.148 5759-5912/com.enflick.android.TextNow I/TextNow: [CallManager] Current active call id: [ac692afe-6eb2-4297-8c07-5d95b34da402] ending call id: [ac692afe-6eb2-4297-8c07-5d95b34da402]
+2020-06-23 15:18:39.150 5759-5912/com.enflick.android.TextNow E/TextNow: [CallManager] Permission is missing
+2020-06-23 15:18:39.153 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: Event Call Duration VOIP with info double
+2020-06-23 15:18:39.153 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=Event Call Duration, value=2.0, info=}
+2020-06-23 15:18:39.154 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] callquality-dev Record saved: {"uuid":"ac692afe-6eb2-4297-8c07-5d95b34da402","created_at":"2020-06-23 19:18:39","client_type":"TN_ANDROID","client_version":"20.22.0.0","device_model":"coral","os_version":"11","call_duration":2027,"username":"karn","network_type":"wifi","mean_mos_score":4,"median_mos_score":4}
+2020-06-23 15:18:39.156 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_REDIAL, value=0.0, info=}
+2020-06-23 15:18:39.159 5759-5912/com.enflick.android.TextNow D/TextNow: [PjSipClient] getCodecSettings() called with: codecName = [opus/48000/2]
+2020-06-23 15:18:39.159 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=Event Wifi Transitions, value=0.0, info=}
+2020-06-23 15:18:39.159 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] calls-dev Record saved: {"created_at":"2020-06-23 19:18:39","http_response_status":200,"event_source":"client","username":"karn","client_type":"TN_ANDROID","client_version":"20.22.0.0","country_code":"","call_direction":"outgoing","call_duration":2,"from_username":"karn","call_status":"ended","from":"+19204623541","to":"+14242908378"}
+2020-06-23 15:18:39.160 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: Event Call Duration with info double
+2020-06-23 15:18:39.160 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] closeCall() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402]
+2020-06-23 15:18:39.160 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallCompleted, callId: ac692afe-6eb2-4297-8c07-5d95b34da402, call disposition: USER_HUNGUP)
+2020-06-23 15:18:39.160 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] stopQosService() called
+2020-06-23 15:18:39.161 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] stopQosService: stopping service now
+2020-06-23 15:18:39.161 5759-5912/com.enflick.android.TextNow D/TextNow: [QOSTestRunnerService] setCallId() called with: callId = [ac692afe-6eb2-4297-8c07-5d95b34da402]
+2020-06-23 15:18:39.161 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallCompleted: stopping call diagnostics after closeCall
+2020-06-23 15:18:39.161 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] stop() called with: callData = [bundle data: Bundle[{opus_settings_bandwidth=wb, qos_test_result=NOT_RUN, last_network=WIFI, call_duration=2027, sip_call_id=8556b8af-e594-4709-80b6-1416e9f1cf26, client_call_id=ac692afe-6eb2-4297-8c07-5d95b34da402, call_type=VOIP, opus_settings_bitrate=18400, sip_registrar_endpoint=52.203.74.121:5090, last_network_granular=, call_start_time=1592939917108, sip_client_name=pjsip, call_disposition=USER_HUNGUP, call_direction=Outgoing, reporting_id=8556b8af-e594-4709-80b6-1416e9f1cf26, sip_registrar_domain=stage.tncp.textnow.com, call_end_time=1592939919135}]	transitionedToFallback: false]
+2020-06-23 15:18:39.161 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_REDIAL with info double
+2020-06-23 15:18:39.161 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Attempting to stop call diagnostics for callId: ac692afe-6eb2-4297-8c07-5d95b34da402, at time 2020-06-23 19:18:39 UTC
+2020-06-23 15:18:39.163 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: Event Wifi Transitions with info double
+2020-06-23 15:18:39.165 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] **************************Call Completed*************************
+2020-06-23 15:18:39.170 5759-5912/com.enflick.android.TextNow D/TextNow: [CallDiagnostics] Cancelling recurring update runnable -- interrupting if required.
+2020-06-23 15:18:39.170 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallSensorLockHelper] Releasing the wifi lock, proximity wake lock
+2020-06-23 15:18:39.174 5759-5912/com.enflick.android.TextNow D/TextNow: [CallingFragment] onCallCompleted: ac692afe-6eb2-4297-8c07-5d95b34da402
+2020-06-23 15:18:39.174 5759-5912/com.enflick.android.TextNow D/TextNow: [CallRatingDialog] Call duration is too short 2 seconds. Min should be 15 seconds
+2020-06-23 15:18:39.174 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] Finishing activity
+2020-06-23 15:18:39.202 5759-5912/com.enflick.android.TextNow D/TextNow: [InCallSensorLockHelper] Releasing the wifi lock, proximity wake lock
+2020-06-23 15:18:39.202 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] ---Managed calls empty
+2020-06-23 15:18:39.203 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallCompleted->>getNumberOfCalls: 0
+2020-06-23 15:18:39.203 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] notifyCallCompleted: sending intent to stop CallService
+2020-06-23 15:18:39.203 5759-5912/com.enflick.android.TextNow V/TextNow: [CallService] Getting CallService intent for action: com.enflick.android.TextNow.action.stop_service_foreground
+2020-06-23 15:18:39.204 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] mActiveCall = null from onCallEnded
+2020-06-23 15:18:39.204 5759-5912/com.enflick.android.TextNow D/TextNow: [CallMetricUtils] Committing call metrics to LeanPlum.
+2020-06-23 15:18:39.205 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: CallMetrics
+2020-06-23 15:18:39.205 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: Median mos score Wifi
+2020-06-23 15:18:39.205 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=CallMetrics, params={"qos_test_id":0,"mos_score_wifi":"[0.0,0.0,0.0,0.0,1.0]","mean_mos_score_data":0,"median_mos_score_data":0,"data_network":"data","call_type":"VOIP","median_mos_score_wifi":4,"mean_mos_score_wifi":4,"transitioned_to_cdma":false,"mos_score_data":"[0.0,0.0,0.0,0.0,0.0]"}, value=0.0, info=}
+2020-06-23 15:18:39.205 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: Mean mos score Wifi
+2020-06-23 15:18:39.205 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Call ID ac692afe-6eb2-4297-8c07-5d95b34da402 onCallStateChanged TERMINATED
+2020-06-23 15:18:39.206 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Removing incoming call notification
+2020-06-23 15:18:39.207 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManagerNotificationHelper] Asked to stop ringing
+2020-06-23 15:18:39.207 5759-5912/com.enflick.android.TextNow D/TextNow: [Ringer] Is phone ringtone playing? : false
+2020-06-23 15:18:39.207 5759-5912/com.enflick.android.TextNow D/TextNow: [Ringer] Is phone vibrating? : false
+2020-06-23 15:18:39.207 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=Median mos score Wifi, value=4.0, info=}
+2020-06-23 15:18:39.207 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: EVENT_CALL_DURATION
+2020-06-23 15:18:39.208 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: CallMetrics with info map
+2020-06-23 15:18:39.208 5759-5872/com.enflick.android.TextNow V/FA: Inactivity, disconnecting from the service
+2020-06-23 15:18:39.211 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: Median mos score Wifi with info double
+2020-06-23 15:18:39.211 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=EVENT_CALL_DURATION, params={"ATTRIBUTE_CALL_DURATION_TOTAL":2027,"ATTRIBUTE_CALL_DURATION_VOIP":2027}, value=0.0, info=}
+2020-06-23 15:18:39.214 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: EVENT_CALL_DURATION with info map
+2020-06-23 15:18:39.214 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.internal.LeanplumInternal::trackInternal::378]: Will call API method track with arguments {event=Mean mos score Wifi, value=4.0, info=}
+2020-06-23 15:18:39.215 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved event: Mean mos score Wifi with info double
+2020-06-23 15:18:39.219 5759-5912/com.enflick.android.TextNow D/TextNow: [QOSTestRunnerService] onDestroy() called
+2020-06-23 15:18:39.224 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom RESUMED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.225 5759-5759/com.enflick.android.TextNow D/AudioTrack: logBufferSizeUnderruns(), mMetricsId = audio.track.2602
+2020-06-23 15:18:39.226 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom RESUMED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.230 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] Dialer Activity onPause
+2020-06-23 15:18:39.230 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] CallService received command from intent: Intent { act=com.enflick.android.TextNow.action.stop_service_foreground cmp=com.enflick.android.TextNow/.tncalling.CallService }
+2020-06-23 15:18:39.230 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] CallService intent received for stop foreground
+2020-06-23 15:18:39.230 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] CallService - resetting audio mode to normal - previous mode 0
+2020-06-23 15:18:39.231 5759-5872/com.enflick.android.TextNow V/FA: Recording user engagement, ms: 27560
+2020-06-23 15:18:39.232 5759-5872/com.enflick.android.TextNow V/FA: Connecting to remote service
+2020-06-23 15:18:39.232 5759-5872/com.enflick.android.TextNow V/FA: Activity paused, time: 511606393
+2020-06-23 15:18:39.245 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] onStop()
+2020-06-23 15:18:39.245 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] getCurrentCallState() called
+2020-06-23 15:18:39.245 5759-5912/com.enflick.android.TextNow D/TextNow: [CallManager] getCurrentCallState: mActiveCall is null
+2020-06-23 15:18:39.245 5759-5912/com.enflick.android.TextNow I/TextNow: [CallManager] onStop() triggered
+2020-06-23 15:18:39.245 5759-5912/com.enflick.android.TextNow D/TextNow: [PjInstance] unregister() called
+2020-06-23 15:18:39.245 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] checkStopSelf()
+2020-06-23 15:18:39.246 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] Stopping self...
+2020-06-23 15:18:39.248 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.248    pjsua_acc.c thr0x77300ac !Deleting account 0
+2020-06-23 15:18:39.248 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.248    pjsua_acc.c thr0x77300ac  Acc 0: setting unregistration..
+2020-06-23 15:18:39.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.249      sip_reg.c thr0x77300ac  Sending register request with timeout 5000
+2020-06-23 15:18:39.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.249   pjsua_core.c thr0x77300ac  TX 631 bytes Request msg REGISTER/cseq=48716 (tdta0x79cd1de928) to UDP 52.203.74.121:5090:
+    REGISTER sip:stage.tncp.textnow.com SIP/2.0
+    v: SIP/2.0/UDP 108.170.177.208:45526;rport;branch=z9hG4bKPja4679556-fc50-4672-bb17-ee768ead1943
+    Route: <sip:52.203.74.121:5090;lr>
+    Max-Forwards: 70
+    f: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=bf7d3430-30f3-4e78-a21c-33dfe1d0e34f
+    t: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>
+    i: 80e44e7c-9094-45c3-a279-90c4bff95f68
+    CSeq: 48716 REGISTER
+    User-Agent: TextNow PjSip 2.6/20.22.0.0
+    m: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@108.170.177.208:45526>
+    Expires: 0
+    l:  0
+    
+    
+    --end msg--
+2020-06-23 15:18:39.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.249 sip_util_state thr0x77300ac  Setting request timeout of 5000
+2020-06-23 15:18:39.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.249    pjsua_acc.c thr0x77300ac  Acc 0: Unregistration sent
+2020-06-23 15:18:39.249 5759-6542/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.249    pjsua_acc.c thr0x77300ac  Account id 0 deleted
+2020-06-23 15:18:39.250 5759-5912/com.enflick.android.TextNow V/TextNow: [PjSipClient] Registration state changed (code=PJSIP_SC_OK,reason=account deleted). Registered: false. Expiry: 0
+2020-06-23 15:18:39.250 5759-5912/com.enflick.android.TextNow D/TextNow: [OutgoingCallReporter] handleRegistrationUpdate() called with: isRegistered = [false]
+2020-06-23 15:18:39.266 5759-5912/com.enflick.android.TextNow D/TextNow: [MainActivity] onStart() called
+2020-06-23 15:18:39.271 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto STARTED: ConversationListFragment{223c9b3} (6afdeb71-8c07-442d-af0c-0b6e1409effa) id=0x7f0a0352}
+2020-06-23 15:18:39.275 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto STARTED: SupportRequestManagerFragment{c6f9724} (39b07736-0e80-4bf1-b8b9-0ac6eaa68a7f) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.279 5759-5912/com.enflick.android.TextNow W/TextNow: [Preferences] Failed to retrieve encrypted value
+2020-06-23 15:18:39.279 5759-5912/com.enflick.android.TextNow D/TextNow: [TNPassCodeActivity] Passcode not setup. Not showing passcode. Not inflating passcode.
+2020-06-23 15:18:39.280 5759-5912/com.enflick.android.TextNow V/TextNow: [MainControllerBase] onActivityStart
+2020-06-23 15:18:39.280 5759-5912/com.enflick.android.TextNow D/TextNow: [MainActivity] onStart completed
+2020-06-23 15:18:39.281 5759-5912/com.enflick.android.TextNow D/TextNow: [MainActivity] updateSipInfoCacheIfRequired() called
+2020-06-23 15:18:39.281 5759-5912/com.enflick.android.TextNow W/TextNow: [Preferences] Failed to retrieve encrypted value
+2020-06-23 15:18:39.281 5759-5912/com.enflick.android.TextNow D/TextNow: [MainActivity] current version is known to support calling, check if call service is running
+2020-06-23 15:18:39.282 5759-5912/com.enflick.android.TextNow D/TextNow: [MainActivity] Call service is running, binding to it.
+2020-06-23 15:18:39.288 5759-5872/com.enflick.android.TextNow V/FA: Activity resumed, time: 511606455
+2020-06-23 15:18:39.290 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: attribute
+2020-06-23 15:18:39.293 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Starting to run task without service (64):FetchTestProfile
+2020-06-23 15:18:39.293 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Starting to run task without service (63):FetchPacketTestAndHeartbeatServers
+2020-06-23 15:18:39.294 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.Leanplum::setUserAttributesInternal::1563]: Will call API method setUserAttributes with arguments {userAttributes={"permission_storage_status":"permanently denied","permission_telephone_status":"granted","permission_camera_status":"permanently denied","permission_contacts_status":"denied","permission_location_status":"permanently denied","permission_microphone_status":"granted","permission_sms_status":"permanently denied"}}
+2020-06-23 15:18:39.295 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Finished running task without service (63):FetchPacketTestAndHeartbeatServers in 0ms
+2020-06-23 15:18:39.296 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Finished running task without service (64):FetchTestProfile in 2ms
+2020-06-23 15:18:39.296 5759-5912/com.enflick.android.TextNow V/TextNow: [MainControllerBase] onActivityResume
+2020-06-23 15:18:39.297 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Starting to run task without service (66):GetSubscriptionTask
+2020-06-23 15:18:39.300 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved attribute(s) with: 7 key-value pair(s)
+2020-06-23 15:18:39.301 5759-5912/com.enflick.android.TextNow D/TextNow: [TNBannerActivity] Removed AllowIgnoreBatteryOptimizationRequestDialog
+2020-06-23 15:18:39.301 5759-5912/com.enflick.android.TextNow D/TextNow: [MainActivity] onResume completed
+2020-06-23 15:18:39.301 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto RESUMED: ConversationListFragment{223c9b3} (6afdeb71-8c07-442d-af0c-0b6e1409effa) id=0x7f0a0352}
+2020-06-23 15:18:39.306 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Starting to run task without service (67):UpdateLeanplumInboxCacheTask
+2020-06-23 15:18:39.308 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanplumInboxUtils] Updating Leanplum Inbox Cached row. Number of messages 0
+2020-06-23 15:18:39.308 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Finished running task without service (67):UpdateLeanplumInboxCacheTask in 0ms
+2020-06-23 15:18:39.308 5759-5912/com.enflick.android.TextNow V/TextNow: [ShowNPS] shouldShowNPS(false, 2020-06-17T17:40:18.899-04:00, 2020-06-11T13:50:02.929-04:00)
+2020-06-23 15:18:39.309 5759-5759/com.enflick.android.TextNow D/FragmentManager: moveto RESUMED: SupportRequestManagerFragment{c6f9724} (39b07736-0e80-4bf1-b8b9-0ac6eaa68a7f) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.310 5759-5912/com.enflick.android.TextNow D/TextNow: [NudgeBannerUtils] enabledFromLeanplum = false enabledFromDeveloperMode = false hasUserCompletedStep = true haveShownProgressOnStepCompletion = false
+2020-06-23 15:18:39.311 5759-5912/com.enflick.android.TextNow D/TextNow: [ConversationListFragment] Nudge banner turned off from Leanplum
+2020-06-23 15:18:39.316 5759-5912/com.enflick.android.TextNow D/TextNow: [BlockedContactUtils] Retrieved 0 blocked contact values from database
+2020-06-23 15:18:39.319 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.308   pjsua_core.c      pjsua_0  RX 545 bytes Response msg 200/REGISTER/cseq=48716 (rdata0x79fcde98d8) from UDP 52.203.74.121:5090:
+    SIP/2.0 200 OK
+    v: SIP/2.0/UDP 108.170.177.208:45526;received=108.170.177.208;rport=45526;branch=z9hG4bKPja4679556-fc50-4672-bb17-ee768ead1943
+    f: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=bf7d3430-30f3-4e78-a21c-33dfe1d0e34f
+    t: <sip:19204623541_pJYt8iH7RfSOJCFwdvleD9M9TlizPU6XX3qWgONAVmvK@stage.tncp.textnow.com>;tag=3c5288712d751d989ecb52dfd1d7d6cc.75170000
+    i: 80e44e7c-9094-45c3-a279-90c4bff95f68
+    CSeq: 48716 REGISTER
+    Supported: outbound
+    Server: sip-registrar1.tncp
+    Content-Length: 0
+    
+    
+    --end msg--
+2020-06-23 15:18:39.369 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:39.435 5759-5912/com.enflick.android.TextNow D/TextNow: [CallService] initializeCallManager()
+2020-06-23 15:18:39.440 5759-5872/com.enflick.android.TextNow D/FA: Connected to remote service
+2020-06-23 15:18:39.440 5759-5872/com.enflick.android.TextNow V/FA: Processing queued up service tasks: 6
+2020-06-23 15:18:39.451 5759-5912/com.enflick.android.TextNow D/TextNow: [CoachMarkUtils] Not showing coach marks, user has existing conversations
+2020-06-23 15:18:39.472 5759-5912/com.enflick.android.TextNow I/TextNow: [LaunchTimeHelper] AppLaunchConfiguration App launch time for user is 202 milliseconds for warm
+2020-06-23 15:18:39.477 5759-5912/com.enflick.android.TextNow D/TextNow: [SaveSingleRecordRunnableBase] appmetrics-dev Record saved: {"created_at":"2020-06-23 19:18:39","client_type":"TN_ANDROID","client_version":"20.22.0.0","username":"karn","device_model":"coral","os_version":"11","network_type":"wifi","metric_name":"app_launch_time_warm","metric_value":"202"}
+2020-06-23 15:18:39.575 5759-5912/com.enflick.android.TextNow D/TextNow: [AbstractHttpCommand] SubscriptionGet Request took 258ms
+2020-06-23 15:18:39.622 5759-5912/com.enflick.android.TextNow I/TextNow: [AbstractHttpCommand] SubscriptionGet response error, status: 422
+2020-06-23 15:18:39.622 5759-5912/com.enflick.android.TextNow D/TextNow: [AbstractHttpCommand] SubscriptionGet response: Unprocessable Entity
+2020-06-23 15:18:39.626 5759-6060/com.enflick.android.TextNow W/FirebaseRemoteConfig: No value of type 'FirebaseRemoteConfigValue' exists for parameter key 'fpr_session_max_duration_min'.
+2020-06-23 15:18:39.628 5759-5912/com.enflick.android.TextNow I/TextNow: [SubscriptionGet] SubscriptionGet ERROR - code:422 error: NOT_FOUND
+2020-06-23 15:18:39.632 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom STARTED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.632 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom STARTED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.633 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] Dialer Activity onStop
+2020-06-23 15:18:39.636 5759-5759/com.enflick.android.TextNow D/FragmentManager: onCleared called for FragmentManagerViewModel{9d7f950} Fragments () Child Non Config (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8, 156291ea-32fb-40d6-b5e9-b7588f3336e0) ViewModelStores ()
+2020-06-23 15:18:39.640 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom ACTIVITY_CREATED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.643 5759-5912/com.enflick.android.TextNow D/TextNow: [DialerActivity] unbind call service in DialerActivity
+2020-06-23 15:18:39.643 5759-5912/com.enflick.android.TextNow D/TextNow: [TextNow] DialerActivity on unregister: unregister receiver
+2020-06-23 15:18:39.645 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumHelper] Starting LeanPlumReportingRunnable for: attribute
+2020-06-23 15:18:39.645 5759-5759/com.enflick.android.TextNow V/FragmentManager: Removed fragment from active set CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.645 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom CREATED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.646 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Finished running task without service (66):GetSubscriptionTask in 352ms
+2020-06-23 15:18:39.646 5759-5759/com.enflick.android.TextNow D/FragmentManager: Clearing non-config state for CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.646 5759-5759/com.enflick.android.TextNow D/FragmentManager: onCleared called for FragmentManagerViewModel{baacb5a} Fragments () Child Non Config () ViewModelStores ()
+2020-06-23 15:18:39.647 5759-6056/com.enflick.android.TextNow V/[VERBOSE][Leanplum]: [com.leanplum.Leanplum::setUserAttributesInternal::1563]: Will call API method setUserAttributes with arguments {userAttributes={"is_employee":false,"user_status":"free","subscription_permission_level":"NONE","ATTRIBUTE_VOICE_FALLBACK_ALLOWED":false}}
+2020-06-23 15:18:39.654 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom ATTACHED: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.654 5759-5759/com.enflick.android.TextNow D/FragmentManager: initState called for fragment: CallingFragment{77e8323} (156291ea-32fb-40d6-b5e9-b7588f3336e0) id=0x7f0a0350 calling_fragment}
+2020-06-23 15:18:39.654 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom ACTIVITY_CREATED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.655 5759-5759/com.enflick.android.TextNow V/FragmentManager: Removed fragment from active set SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.655 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom CREATED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.655 5759-5759/com.enflick.android.TextNow D/FragmentManager: Clearing non-config state for SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.655 5759-5759/com.enflick.android.TextNow D/FragmentManager: onCleared called for FragmentManagerViewModel{89b88a6} Fragments () Child Non Config () ViewModelStores ()
+2020-06-23 15:18:39.656 5759-5759/com.enflick.android.TextNow D/FragmentManager: movefrom ATTACHED: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.656 5759-5759/com.enflick.android.TextNow D/FragmentManager: initState called for fragment: SupportRequestManagerFragment{bc2cec} (bf1c5afe-02b0-48e4-8f7f-ce5a4a4e9ef8) com.bumptech.glide.manager}{parent=null}
+2020-06-23 15:18:39.656 5759-5912/com.enflick.android.TextNow D/TextNow: [LeanPlumReportingRunnable] Saved attribute(s) with: 4 key-value pair(s)
+2020-06-23 15:18:39.659 5759-5912/com.enflick.android.TextNow D/TextNow: [TNPassCodeActivity] Released passcode resources for activity:	com.enflick.android.TextNow.activities.DialerActivity@883cc84
+2020-06-23 15:18:39.671 5759-5912/com.enflick.android.TextNow D/TextNow: [PermissionHelper] requestPermissionsOnMainActivity() called with: activity = [com.enflick.android.TextNow.activities.MainActivity@75033e0]
+2020-06-23 15:18:39.675 5759-5912/com.enflick.android.TextNow D/TextNow: [PhoneUtils] This app is not the native dialer. Default dialer package name is: com.google.android.dialer
+2020-06-23 15:18:39.676 5759-5912/com.enflick.android.TextNow D/TextNow: [TNUserInfo] getWirelessUserPromptedForDefaultPhone: wirelessSimUserPrimedForDefaultPhone = false
+2020-06-23 15:18:39.681 5759-5912/com.enflick.android.TextNow D/TextNow: [FreeWirelessUtils] isUserPremium = false, wirelessUser = false, isNetworkServiceAvailable = true, isFreeCellular = false, isTalkAndText = false, isDataSubscriptionPlan = false, isUnlimitedDataSubscriptionPlan = false, isCellularCapable = true
+2020-06-23 15:18:39.681 5759-5912/com.enflick.android.TextNow E/TextNow: [Throttler] unthrottle() - Called with null socket
+2020-06-23 15:18:39.901 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.900    pjsua_aud.c      pjsua_0 !Closing sound device after idle for 1 second(s)
+2020-06-23 15:18:39.902 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.901    pjsua_aud.c      pjsua_0  Closing Android JNI sound playback device and Android JNI sound capture device
+2020-06-23 15:18:39.903 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.903 android_jni_de      pjsua_0  Android JNI stream stopped
+2020-06-23 15:18:39.904 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:39.903 android_jni_de      pjsua_0  Destroying Android JNI stream...
+2020-06-23 15:18:40.040 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:40.040 android_jni_de      pjsua_0 !Audio record released
+2020-06-23 15:18:40.042 5759-6548/com.enflick.android.TextNow D/AudioTrack: stop(2605): called with 142400 frames delivered
+2020-06-23 15:18:40.042 5759-6548/com.enflick.android.TextNow D/AudioTrack: logBufferSizeUnderruns(), mMetricsId = audio.track.2605
+2020-06-23 15:18:40.044 5759-6548/com.enflick.android.TextNow D/AudioTrack: logBufferSizeUnderruns(), mMetricsId = audio.track.2605
+2020-06-23 15:18:40.048 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:40.048 android_jni_de      pjsua_0  Audio track released
+2020-06-23 15:18:40.049 5759-6548/com.enflick.android.TextNow D/PjSip: 2020-06-23 15:18:40.049 android_jni_de      pjsua_0  Android JNI stream destroyed
+2020-06-23 15:18:40.325 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:40.670 5759-5912/com.enflick.android.TextNow D/TextNow: [GetMoPubIdTask] MoPub ID: using default production ID
+2020-06-23 15:18:42.301 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Starting to run task without service (74):PuntStartTask
+2020-06-23 15:18:42.301 5759-5912/com.enflick.android.TextNow I/TextNow: [TNTaskService] Finished running task without service (74):PuntStartTask in 1ms

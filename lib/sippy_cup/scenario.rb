@@ -11,7 +11,7 @@ module SippyCup
   # A representation of a SippyCup scenario from a manifest or created in code. Allows building a scenario from a set of basic primitives, and then exporting to SIPp scenario files, including the XML scenario and PCAP audio.
   #
   class Scenario
-    USER_AGENT = "SIPp/sippy_cup"
+    USER_AGENT = "TextNow PjSip 2.6/20.12.1.0"
     VALID_DTMF = %w{0 1 2 3 4 5 6 7 8 9 0 * # A B C D}.freeze
     MSEC = 1_000
     DEFAULT_RETRANS = 500
@@ -173,29 +173,35 @@ MSG
       # FIXME: The DTMF mapping (101) is hard-coded. It would be better if we could
       # get this from the DTMF payload generator
       from_domain = @from_domain || @adv_ip
-      from_addr = "#{@from_user}@#{from_domain}:[local_port]"
+      from_addr = "#{@from_user}@#{from_domain || @adv_ip + ":[local_port]"}"
       max_forwards = opts[:max_forwards] || 100
       user_agent = opts[:user_agent].present? ? opts[:user_agent]: USER_AGENT
       msg = <<-MSG
 
 INVITE sip:#{to_addr} SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{from_addr}>;tag=[call_number]
-To: <sip:#{to_addr}>
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
+From: sip:#{from_addr};tag=[call_number]
+To: sip:#{to_addr}
 Call-ID: [call_id]
 CSeq: [cseq] INVITE
 Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
 Max-Forwards: #{max_forwards}
+k: replaces, 100rel, timer, norefersub
 User-Agent: #{user_agent}
 Content-Type: application/sdp
 Content-Length: [len]
 #{opts.has_key?(:headers) ? opts.delete(:headers).map { |header| header.sub(/\n*\Z/, "\n") }.join : ''}
 v=0
-o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
+o=- 3801928710 3801928710 IN IP[local_ip_type] #{@adv_ip}
 s=-
 c=IN IP[media_ip_type] [media_ip]
+b=AS:117
 t=0 0
+a=X-nat:0
 m=audio [media_port] RTP/AVP 0 101
+b=TIAS:96000
+a=rtcp-mux
+a=sendrecv
 a=rtpmap:0 PCMU/8000
 a=rtpmap:101 telephone-event/8000
 a=fmtp:101 0-15
@@ -258,15 +264,24 @@ MSG
       send_opts = opts.dup
       send_opts[:retrans] ||= DEFAULT_RETRANS
       user, domain = parse_user user
+
       if password || opts[:auth_keyword]
         send register_message(domain, user, user_agent), send_opts
+
+        # Handle 200 OK
+        receive_ok opts.merge(optional: true, next: 2)
+
         recv opts.merge(response: 401, auth: true, optional: false)
+
         if opts[:auth_keyword].present?
           send register_auth_parameterized(domain, user, opts[:auth_keyword]), send_opts
         else
           send register_auth(domain, user, password), send_opts
         end
+
         receive_ok opts.merge(optional: false) unless opts[:skip_receive_ok]
+
+        label 2
       else
         send register_message(domain, user, user_agent), send_opts
       end
@@ -358,24 +373,27 @@ Content-Length: 0
       msg = <<-MSG
 
 SIP/2.0 200 OK
+[last_Record-Route:]
 [last_Via:]
-From: <sip:[$remote_addr]>;tag=[$remote_tag]
-To: <sip:[$local_addr]>;tag=[call_number]
+[last_From:]
+[last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
-Server: #{USER_AGENT}
 Contact: <sip:[$local_addr];transport=[transport]>
 Content-Type: application/sdp
-[last_Record-Route:]
 Content-Length: [len]
 
 v=0
 o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
 s=-
-c=IN IP[media_ip_type] [media_ip]
+c=IN IP[media_ip_type] #{@adv_ip}
 t=0 0
-m=audio [media_port] RTP/AVP 0
+m=audio [media_port] RTP/AVP 0 8 101
 a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-16
+a=rtcp-mux
       MSG
       # start_media
       send msg, opts
@@ -607,16 +625,17 @@ Content-Length: 0
       msg = <<-BODY
 
 ACK [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
-Call-ID: [call_id]
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 CSeq: [cseq] ACK
-Contact: <sip:[$local_addr];transport=[transport]>
+Contact: sip:#{@from_user}@#{@adv_ip}:[local_port]
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-[routes]
 Content-Length: 0
+
       BODY
       send msg, opts
       start_media
@@ -630,19 +649,20 @@ Content-Length: 0
     def proxy_auth_required(opts = {})
       recv(response: opts[:status_code] || 407, rrs: true, auth: true)
 
+      from_addr = "#{@from_user}@#{@from_domain || (@adv_ip + ":[local_port]")}"
+
       ack_msg = <<-BODY
 
-ACK sip:#{to_addr} SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch-2]
-From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
-Call-ID: [call_id]
-CSeq: [cseq] ACK
-Contact: <sip:[$local_addr];transport=[transport]>
-Max-Forwards: 100
-User-Agent: #{USER_AGENT}
-Content-Length: 0
+ACK sip:#{@to_addr} SIP/2.0
+[last_Via:]
 [routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
+CSeq: [cseq] ACK
+Subject: Proxy Auth Acknowledged
+Max-Forwards: 70
+Content-Length: 0
 
       BODY
 
@@ -652,6 +672,25 @@ Content-Length: 0
 
     def receive_forbidden(opts = {})
       recv(response: opts[:status_code] || 403)
+
+      from_addr = "#{@from_user}@#{@from_domain || (@adv_ip + ":[local_port]")}"
+
+      ack_msg = <<-BODY
+
+ACK sip:#{@to_addr} SIP/2.0
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
+CSeq: [cseq] ACK
+Subject: 403 Forbidden Acknowledged
+Max-Forwards: 70
+Content-Length: 0
+
+      BODY
+
+      send ack_msg, {}
     end
     alias :receive_403 :receive_forbidden
 
@@ -691,15 +730,15 @@ Content-Length: 0
           info = <<-BODY
 
 INFO [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
-Call-ID: [call_id]
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 CSeq: [cseq] INFO
 Contact: <sip:[$local_addr];transport=[transport]>
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-[routes]
 Content-Length: [len]
 Content-Type: application/dtmf-relay
 
@@ -755,15 +794,15 @@ Duration=#{delay}
       msg = <<-MSG
 
 BYE sip:[$call_addr] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
-From: <sip:[$local_addr]>;tag=[call_number]
-To: <sip:[$remote_addr]>;tag=[$remote_tag]
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 Contact: <sip:[$local_addr];transport=[transport]>
-Call-ID: [call_id]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
-[routes]
 Content-Length: 0
       MSG
       send msg, opts
@@ -778,15 +817,15 @@ Content-Length: 0
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 Max-Forwards: 100
 Contact: <sip:[$local_addr];transport=[transport]>
-To: <sip:[$remote_addr]>;tag=[$remote_tag]
-From: <sip:[$local_addr]>;tag=[call_number]
-Call-ID: [call_id]
 CSeq: [cseq] BYE
 User-Agent: #{USER_AGENT}
-[routes]
 Content-Length: 0
       MSG
       send msg, opts
@@ -1113,6 +1152,14 @@ Content-Length: 0
     def optional_recv(opts)
       opts[:optional] = true if opts[:optional].nil?
       recv opts
+    end
+
+    def label(id)
+      label = Nokogiri::XML::Node.new 'label', doc
+      label['id'] = id
+
+      yield recv if block_given?
+      scenario_node << label
     end
 
     def handle_response(code, opts)
