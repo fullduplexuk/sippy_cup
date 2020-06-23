@@ -11,7 +11,7 @@ module SippyCup
   # A representation of a SippyCup scenario from a manifest or created in code. Allows building a scenario from a set of basic primitives, and then exporting to SIPp scenario files, including the XML scenario and PCAP audio.
   #
   class Scenario
-    USER_AGENT = "TextNow PjSip 2.6/20.12.1.0"
+    USER_AGENT = "SIPp/sippy_cup"
     VALID_DTMF = %w{0 1 2 3 4 5 6 7 8 9 0 * # A B C D}.freeze
     MSEC = 1_000
     DEFAULT_RETRANS = 500
@@ -186,20 +186,16 @@ Call-ID: [call_id]
 CSeq: [cseq] INVITE
 Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
 Max-Forwards: #{max_forwards}
-k: replaces, 100rel, timer, norefersub
 User-Agent: #{user_agent}
 Content-Type: application/sdp
 Content-Length: [len]
 #{opts.has_key?(:headers) ? opts.delete(:headers).map { |header| header.sub(/\n*\Z/, "\n") }.join : ''}
 v=0
-o=- 3801928710 3801928710 IN IP[local_ip_type] #{@adv_ip}
+o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
 s=-
 c=IN IP[media_ip_type] [media_ip]
-b=AS:117
 t=0 0
-a=X-nat:0
 m=audio [media_port] RTP/AVP 0 101
-b=TIAS:96000
 a=rtcp-mux
 a=sendrecv
 a=rtpmap:0 PCMU/8000
@@ -386,7 +382,7 @@ Content-Length: [len]
 v=0
 o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
 s=-
-c=IN IP[media_ip_type] #{@adv_ip}
+c=IN IP[media_ip_type] [media_ip]
 t=0 0
 m=audio [media_port] RTP/AVP 0 8 101
 a=rtpmap:0 PCMU/8000
@@ -649,8 +645,6 @@ Content-Length: 0
     def proxy_auth_required(opts = {})
       recv(response: opts[:status_code] || 407, rrs: true, auth: true)
 
-      from_addr = "#{@from_user}@#{@from_domain || (@adv_ip + ":[local_port]")}"
-
       ack_msg = <<-BODY
 
 ACK sip:#{@to_addr} SIP/2.0
@@ -672,8 +666,6 @@ Content-Length: 0
 
     def receive_forbidden(opts = {})
       recv(response: opts[:status_code] || 403)
-
-      from_addr = "#{@from_user}@#{@from_domain || (@adv_ip + ":[local_port]")}"
 
       ack_msg = <<-BODY
 
