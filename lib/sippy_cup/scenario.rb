@@ -413,7 +413,7 @@ CANCEL sip:#{to_addr} SIP/2.0
 From: <sip:[$remote_addr]>
 To: <sip:[$local_addr]>;tag=[call_number]
 [last_Call-ID:]
-[last_CSeq:]
+CSeq: [cseq] CANCEL
 #{opts.has_key?(:headers) ? opts.delete(:headers).sub(/\n*\Z/, "\n") : ''}
 Server: #{USER_AGENT}
 Content-Length: 0
