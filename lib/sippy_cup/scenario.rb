@@ -791,7 +791,7 @@ BYE sip:[$call_addr] SIP/2.0
 [last_From:]
 [last_To:]
 [last_Call-ID:]
-Contact: <sip:[$local_addr];transport=[transport]>
+Contact: <sip:#{@adv_ip};transport=[transport]>
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
