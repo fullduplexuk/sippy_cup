@@ -814,8 +814,8 @@ BYE [next_url] SIP/2.0
 [last_From:]
 [last_To:]
 [last_Call-ID:]
+Contact: <sip:#{@adv_ip};transport=[transport]>
 Max-Forwards: 100
-Contact: <sip:[$local_addr];transport=[transport]>
 CSeq: [cseq] BYE
 User-Agent: #{USER_AGENT}
 Content-Length: 0
