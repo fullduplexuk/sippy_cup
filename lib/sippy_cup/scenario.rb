@@ -375,7 +375,7 @@ SIP/2.0 200 OK
 [last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
-Contact: <sip:[$local_addr];transport=[transport]>
+Contact: <sip:#{@adv_ip};transport=[transport]>
 Content-Type: application/sdp
 Content-Length: [len]
 
