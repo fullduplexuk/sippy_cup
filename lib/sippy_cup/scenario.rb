@@ -790,7 +790,7 @@ Duration=#{delay}
 BYE [next_url] SIP/2.0
 [last_Record-Route:]
 [last_Via:]
-To: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>[peer_tag_param]
+To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
 [last_Call-ID:]
 CSeq: [cseq] BYE
@@ -812,7 +812,7 @@ Content-Length: 0
 BYE [next_url] SIP/2.0
 [last_Record-Route:]
 [last_Via:]
-To: "#{@from_user}" <sip:#{@from_user}@#{@adv_ip}:[local_port]>[peer_tag_param]
+To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
 [last_Call-ID:]
 Contact: <sip:#{@adv_ip};transport=[transport]>
