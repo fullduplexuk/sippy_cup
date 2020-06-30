@@ -324,9 +324,10 @@ MSG
       msg = <<-MSG
 
 SIP/2.0 100 Trying
+[last_Record-Route:]
 [last_Via:]
-From: <sip:[$remote_addr]>;tag=[$remote_tag]
-To: <sip:[$local_addr]>;tag=[call_number]
+[last_From:]
+[last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
 Server: #{USER_AGENT}
@@ -346,9 +347,10 @@ Content-Length: 0
       msg = <<-MSG
 
 SIP/2.0 180 Ringing
+[last_Record-Route:]
 [last_Via:]
-From: <sip:[$remote_addr]>;tag=[$remote_tag]
-To: <sip:[$local_addr]>;tag=[call_number]
+[last_From:]
+[last_To:];tag=[call_number]
 [last_Call-ID:]
 [last_CSeq:]
 Server: #{USER_AGENT}
