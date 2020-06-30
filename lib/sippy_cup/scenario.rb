@@ -788,12 +788,11 @@ Duration=#{delay}
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
+[last_Record-Route:]
 [last_Via:]
-[routes]
 [last_From:]
 [last_To:]
 [last_Call-ID:]
-Contact: <sip:#{@adv_ip};transport=[transport]>
 CSeq: [cseq] BYE
 Max-Forwards: 100
 User-Agent: #{USER_AGENT}
@@ -811,8 +810,8 @@ Content-Length: 0
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
+[last_Record-Route:]
 [last_Via:]
-[routes]
 [last_From:]
 [last_To:]
 [last_Call-ID:]
