@@ -785,7 +785,7 @@ Duration=#{delay}
     def send_bye(opts = {})
       msg = <<-MSG
 
-BYE sip:[$call_addr] SIP/2.0
+BYE sip:[service]@#{@to_domain} SIP/2.0
 [last_Via:]
 [routes]
 [last_From:]
@@ -808,7 +808,7 @@ Content-Length: 0
     def send_bye_using_contact(opts = {})
       msg = <<-MSG
 
-BYE [next_url] SIP/2.0
+BYE sip:[service]@#{@to_domain} SIP/2.0
 [last_Via:]
 [routes]
 [last_From:]
