@@ -810,7 +810,7 @@ Content-Length: 0
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-[last_Record-Route:]
+Record-Route: <sip:52.203.74.121:5090;r2=on;lr>, <sip:10.231.33.44;r2=on;lr>, <sip:10.231.33.77;lr=on>
 Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch];rport
 To: "#{@from_user}" <sip:#{@from_user}@10.231.56.206:5090>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
