@@ -788,8 +788,8 @@ Duration=#{delay}
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-[last_Record-Route:]
 [last_Via:]
+[routes]
 To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
 [last_Call-ID:]
@@ -810,8 +810,8 @@ Content-Length: 0
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-[last_Record-Route:]
 [last_Via:]
+[routes]
 To: "#{@from_user}" <sip:#{@from_user}@10.231.56.206:5090>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
 [last_Call-ID:]
