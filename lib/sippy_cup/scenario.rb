@@ -813,7 +813,7 @@ BYE [next_url] SIP/2.0
 [last_Via:]
 [routes]
 To: "#{@from_user}" <sip:#{@from_user}@10.231.56.206:5090>[peer_tag_param]
-From: "#{@to_user}" <sip:#{@to_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
+From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
 [last_Call-ID:]
 Contact: <sip:#{@adv_ip};transport=[transport]>
 Max-Forwards: 100
