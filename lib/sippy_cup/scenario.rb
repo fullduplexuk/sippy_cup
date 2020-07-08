@@ -791,7 +791,7 @@ BYE [next_url] SIP/2.0
 [last_Via:]
 [routes]
 To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
-From: "#{@to_user}" <sip:#{@to_user}@#{@adv_ip}:[local_port]>;tag=[call_number]
+From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
 [last_Call-ID:]
 CSeq: [cseq] BYE
 Max-Forwards: 100
