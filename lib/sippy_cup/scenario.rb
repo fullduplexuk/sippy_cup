@@ -811,7 +811,7 @@ Content-Length: 0
 
 BYE [next_url] SIP/2.0
 [last_Record-Route:]
-[last_Via:]
+Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch];rport
 To: "#{@from_user}" <sip:#{@from_user}@10.231.56.206:5090>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
 [last_Call-ID:]
