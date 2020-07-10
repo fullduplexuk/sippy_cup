@@ -833,7 +833,7 @@ Duration=#{delay}
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-[last_Via:]
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
 [routes]
 #{@direction == "outbound" ? "To:" : "From:" } sip:[$remote_addr];tag=[$remote_tag]
 #{@direction == "outbound" ? "From:" : "To:" } sip:[$local_addr];tag=[call_number]
@@ -842,7 +842,7 @@ CSeq: [cseq] BYE
 Max-Forwards: 100
 #{use_contact ? "Contact: <sip:" + @adv_ip + ";transport=[transport]>" : ""}
 User-Agent: #{USER_AGENT}
-Subject: #{@direction}
+Subject: dir=#{@direction}
 Content-Length: 0
       MSG
       send msg, opts
