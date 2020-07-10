@@ -842,6 +842,7 @@ CSeq: [cseq] BYE
 Max-Forwards: 100
 #{use_contact ? "Contact: <sip:" + @adv_ip + ";transport=[transport]>" : ""}
 User-Agent: #{USER_AGENT}
+Subject: #{@direction}
 Content-Length: 0
       MSG
       send msg, opts
