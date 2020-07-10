@@ -838,8 +838,8 @@ Duration=#{delay}
 BYE [next_url] SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
 [routes]
-#{@direction == "outbound" ? "To:" : "From:" } sip:[$remote_addr];tag=[$remote_tag]
-#{@direction == "outbound" ? "From:" : "To:" } sip:[$local_addr];tag=[call_number]
+#{@direction == "inbound" ? "To:" : "From:" } sip:[$remote_addr];tag=[$remote_tag]
+#{@direction == "inbound" ? "From:" : "To:" } sip:[$local_addr];tag=[call_number]
 [last_Call-ID:]
 CSeq: [cseq] BYE
 Max-Forwards: 100
