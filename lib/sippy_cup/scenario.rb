@@ -833,8 +833,8 @@ Duration=#{delay}
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-[last_Record-Route:]
-[last_Via:]
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
+[routes]
 #{@direction == "outbound" ? "To:" : "From:" } sip:[$remote_addr];tag=[$remote_tag]
 #{@direction == "outbound" ? "From:" : "To:" } sip:[$local_addr];tag=[call_number]
 [last_Call-ID:]
