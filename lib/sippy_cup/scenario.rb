@@ -510,9 +510,9 @@ Content-Type: application/test
       receive_200(options.merge(opts)) do |recv|
         recv << doc.create_element('action') do |action|
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<sip:(.*)>.*;tag=([^;]*)'
+            ereg['regexp'] = '.*<sip:(.*)>.*;tag=([^;]*)'
             ereg['search_in'] = 'hdr'
-            ereg['header'] = opts[:compact_header] ? 't:' : 'To:'
+            ereg['header'] = opts[:compact_header] ? 'f:' : 'From:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
           end
         end
@@ -798,7 +798,7 @@ Duration=#{delay}
 BYE [next_url] SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 [routes]
-To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
+To: "#{@from_user}" <sip:[$remote_addr]>;tag=[$remote_tag]
 From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
 [last_Call-ID:]
 CSeq: [cseq] BYE
@@ -821,8 +821,8 @@ Content-Length: 0
 BYE [next_url] SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 [routes]
-To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[from_tag_param]
-From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>[to_tag_param]
+To: "#{@from_user}" <sip:[$remote_addr]>;tag=[$remote_tag]
+From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
 [last_Call-ID:]
 Contact: <sip:#{@adv_ip};transport=[transport]>
 Max-Forwards: 100
