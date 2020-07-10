@@ -16,7 +16,7 @@ module SippyCup
     MSEC = 1_000
     DEFAULT_RETRANS = 500
 
-    SIP_URI_HEADER_MATCH = '.*<?sip:(.*)>?.*;tag=([^;]*)'
+    SIP_URI_HEADER_MATCH = '.*<?sip:([^>;]*)>?.*;tag=([^;]*)'
 
     #
     # Build a scenario based on either a manifest string or a file handle. Manifests are supplied in YAML format.
@@ -844,7 +844,6 @@ Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 #{use_contact ? "Contact: <sip:" + @adv_ip + ";transport=[transport]>" : ""}
-User-Agent: #{USER_AGENT}
 Subject: dir=#{@direction}
 Content-Length: 0
       MSG
