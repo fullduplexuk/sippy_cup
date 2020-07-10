@@ -312,13 +312,13 @@ MSG
           end
 
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<?sip:(.*)>?'
+            ereg['regexp'] = '<?sip:([^>;]*)>?'
             ereg['search_in'] = 'hdr'
             ereg['header'] = 't:'
             ereg['assign_to'] = 'dummy,local_addr'
           end
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<?sip:(.*)>?'
+            ereg['regexp'] = '<?sip:([^>;]*)>?'
             ereg['search_in'] = 'hdr'
             ereg['header'] = 'To:'
             ereg['assign_to'] = 'dummy,local_addr'
