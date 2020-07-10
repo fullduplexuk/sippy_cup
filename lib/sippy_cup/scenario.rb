@@ -16,6 +16,8 @@ module SippyCup
     MSEC = 1_000
     DEFAULT_RETRANS = 500
 
+    SIP_URI_HEADER_MATCH = '.*<?sip:(.*)>?.*;tag=([^;]*)'
+
     #
     # Build a scenario based on either a manifest string or a file handle. Manifests are supplied in YAML format.
     # All manifest keys can be overridden by passing in a Hash of corresponding values.
@@ -297,17 +299,31 @@ MSG
       recv(opts.merge(request: 'INVITE', rrs: true)) do |recv|
         action = doc.create_element('action') do |action|
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '.*<sip:(.*)>.*;tag=([^;]*)'
+            ereg['regexp'] = SIP_URI_HEADER_MATCH
             ereg['search_in'] = 'hdr'
-            ereg['header'] = opts[:compact_header] ? 'f:' : 'From:'
+            ereg['header'] = 'f:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
           end
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '<sip:(.*)>'
+            ereg['regexp'] = SIP_URI_HEADER_MATCH
             ereg['search_in'] = 'hdr'
-            ereg['header'] = opts[:compact_header] ? 't:' : 'To:'
+            ereg['header'] = 'From:'
+            ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
+          end
+
+          action << doc.create_element('ereg') do |ereg|
+            ereg['regexp'] = '<?sip:(.*)>?'
+            ereg['search_in'] = 'hdr'
+            ereg['header'] = 't:'
             ereg['assign_to'] = 'dummy,local_addr'
           end
+          action << doc.create_element('ereg') do |ereg|
+            ereg['regexp'] = '<?sip:(.*)>?'
+            ereg['search_in'] = 'hdr'
+            ereg['header'] = 'To:'
+            ereg['assign_to'] = 'dummy,local_addr'
+          end
+
           action << doc.create_element('assignstr') do |assignstr|
             assignstr['assign_to'] = "call_addr"
             assignstr['value']     = "[$local_addr]"
@@ -507,18 +523,39 @@ Content-Type: application/test
         rtd: true # Response Time Duration: Record the response time
       }
 
+      @direction = "outbound"
+
       receive_200(options.merge(opts)) do |recv|
         recv << doc.create_element('action') do |action|
           action << doc.create_element('ereg') do |ereg|
-            ereg['regexp'] = '.*<sip:(.*)>.*;tag=([^;]*)'
+            ereg['regexp'] = SIP_URI_HEADER_MATCH
             ereg['search_in'] = 'hdr'
-            ereg['header'] = opts[:compact_header] ? 'f:' : 'From:'
+            ereg['header'] = 't:'
             ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
+          end
+          action << doc.create_element('ereg') do |ereg|
+            ereg['regexp'] = SIP_URI_HEADER_MATCH
+            ereg['search_in'] = 'hdr'
+            ereg['header'] = 'To:'
+            ereg['assign_to'] = 'dummy,remote_addr,remote_tag'
+          end
+
+          action << doc.create_element('ereg') do |ereg|
+            ereg['regexp'] = SIP_URI_HEADER_MATCH
+            ereg['search_in'] = 'hdr'
+            ereg['header'] = 'f:'
+            ereg['assign_to'] = 'dummy,local_addr,local_tag'
+          end
+          action << doc.create_element('ereg') do |ereg|
+            ereg['regexp'] = SIP_URI_HEADER_MATCH
+            ereg['search_in'] = 'hdr'
+            ereg['header'] = 'From:'
+            ereg['assign_to'] = 'dummy,local_addr,local_tag'
           end
         end
       end
       # These variables will only be used if we initiate a hangup
-      @reference_variables += %w(dummy remote_addr remote_tag)
+      @reference_variables += %w(dummy remote_addr remote_tag local_addr local_tag)
     end
 
     #
@@ -796,37 +833,14 @@ Duration=#{delay}
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
-[routes]
-To: "#{@from_user}" <sip:[$remote_addr]>;tag=[$remote_tag]
-From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
+[last_Record-Route:]
+[last_Via:]
+#{@direction == "outbound" ? "To:" : "From:" } sip:[$remote_addr];tag=[$remote_tag]
+#{@direction == "outbound" ? "From:" : "To:" } sip:[$local_addr];tag=[call_number]
 [last_Call-ID:]
 CSeq: [cseq] BYE
 Max-Forwards: 100
 #{use_contact ? "Contact: <sip:" + @adv_ip + ";transport=[transport]>" : ""}
-User-Agent: #{USER_AGENT}
-Content-Length: 0
-      MSG
-      send msg, opts
-    end
-
-    #
-    # Send a BYE message using destination of previous messages Contact Header
-    #
-    # @param [Hash] opts A set of options to modify the message parameters
-    #
-    def send_bye_using_contact(opts = {})
-      msg = <<-MSG
-
-BYE [next_url] SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
-[routes]
-To: "#{@from_user}" <sip:[$remote_addr]>;tag=[$remote_tag]
-From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
-[last_Call-ID:]
-Contact: <sip:#{@adv_ip};transport=[transport]>
-Max-Forwards: 100
-CSeq: [cseq] BYE
 User-Agent: #{USER_AGENT}
 Content-Length: 0
       MSG
