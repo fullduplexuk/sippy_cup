@@ -389,6 +389,9 @@ Content-Length: 0
     #
     def send_answer(opts = {})
       opts[:retrans] ||= DEFAULT_RETRANS
+
+      @direction = "inbound"
+
       msg = <<-MSG
 
 SIP/2.0 200 OK
