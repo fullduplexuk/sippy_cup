@@ -116,6 +116,11 @@ module SippyCup
       @errors = []
       @adv_ip = args[:advertise_address] || "[local_ip]"
 
+
+      # Configure values that will be used for the scope of this scenario
+      @to_uri = args[:to_uri]
+      @from_uri = args[:from_uri]
+
       instance_eval &block if block_given?
     end
 
@@ -785,16 +790,20 @@ Duration=#{delay}
     # @param [Hash] opts A set of options to modify the message parameters
     #
     def send_bye(opts = {})
+
+      use_contact = opts.delete(:use_contact)
+
       msg = <<-MSG
 
 BYE [next_url] SIP/2.0
-[last_Via:]
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 [routes]
 To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[peer_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>;tag=[call_number]
 [last_Call-ID:]
 CSeq: [cseq] BYE
 Max-Forwards: 100
+#{use_contact ? "Contact: <sip:" + @adv_ip + ";transport=[transport]>" : ""}
 User-Agent: #{USER_AGENT}
 Content-Length: 0
       MSG
@@ -812,7 +821,7 @@ Content-Length: 0
 BYE [next_url] SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 [routes]
-To: "#{@from_user}" <sip:#{@from_user}@10.231.56.206:5090>[from_tag_param]
+To: "#{@from_user}" <sip:#{@from_user}@[remote_ip]:[remote_port]>[from_tag_param]
 From: "#{@to_user}" <sip:#{@to_user}@stage.tncp.textnow.com>[to_tag_param]
 [last_Call-ID:]
 Contact: <sip:#{@adv_ip};transport=[transport]>
@@ -875,8 +884,7 @@ Content-Length: 0
     def hangup(opts = {})
       # Use contact is an option to make the bye use the value from the contact header for RURI
       # As opposed to using the standard $call_addr variable set previously
-      use_contact = opts.delete(:use_contact)
-      use_contact ? send_bye_using_contact(opts) : send_bye(opts)
+      send_bye(opts)
       receive_ok opts
     end
 
