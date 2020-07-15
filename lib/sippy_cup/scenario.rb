@@ -604,15 +604,15 @@ Content-Length: 0
 
       ack_msg = <<-BODY
 
-ACK sip:[service]@#{@to_domain} SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch-7]
-From: "#{@from_user}" <sip:#{@from_user}@poc-mike.tncp.textnow.com:[local_port]>;tag=[call_number]
-To: <sip:#{to_addr}>[peer_tag_param]
-Call-ID: [call_id]
+ACK [next_url] SIP/2.0
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
 CSeq: [cseq] ACK
 Max-Forwards: 100
 Content-Length: 0
-[routes]
 
       BODY
 
