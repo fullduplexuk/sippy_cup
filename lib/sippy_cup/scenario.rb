@@ -604,14 +604,15 @@ Content-Length: 0
 
       ack_msg = <<-BODY
 
-ACK sip:#{to_addr} SIP/2.0
-Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
+ACK sip:#{@to_addr} SIP/2.0
+[last_Via:]
 [routes]
 [last_From:]
 [last_To:]
 [last_Call-ID:]
 CSeq: [cseq] ACK
-Max-Forwards: 100
+Subject: User Busy Acknowledged
+Max-Forwards: 70
 Content-Length: 0
 
       BODY
