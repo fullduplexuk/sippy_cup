@@ -604,8 +604,8 @@ Content-Length: 0
 
       ack_msg = <<-BODY
 
-ACK [next_url] SIP/2.0
-[last_Via:]
+ACK sip:#{to_addr} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
 [routes]
 [last_From:]
 [last_To:]
