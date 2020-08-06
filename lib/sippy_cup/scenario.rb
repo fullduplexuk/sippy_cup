@@ -12,6 +12,7 @@ module SippyCup
   #
   class Scenario
     USER_AGENT = "SIPp/sippy_cup"
+    UNHOLD= "sendrecv"
     VALID_DTMF = %w{0 1 2 3 4 5 6 7 8 9 0 * # A B C D}.freeze
     MSEC = 1_000
     DEFAULT_RETRANS = 500
@@ -183,6 +184,7 @@ MSG
       from_addr = "#{@from_user}@#{from_domain || @adv_ip + ":[local_port]"}"
       max_forwards = opts[:max_forwards] || 100
       user_agent = opts[:user_agent].present? ? opts[:user_agent]: USER_AGENT
+      hold = opts[:hold].present? ? opts[:hold]: UNHOLD
       msg = <<-MSG
 
 INVITE sip:#{to_addr} SIP/2.0
@@ -204,7 +206,7 @@ c=IN IP[media_ip_type] [media_ip]
 t=0 0
 m=audio [media_port] RTP/AVP 0 101
 a=rtcp-mux
-a=sendrecv
+a=#{hold}
 a=rtpmap:0 PCMU/8000
 a=rtpmap:101 telephone-event/8000
 a=fmtp:101 0-15
