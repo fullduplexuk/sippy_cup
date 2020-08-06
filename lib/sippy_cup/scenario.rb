@@ -686,6 +686,11 @@ Content-Length: 0
       start_media
     end
 
+    def content_body_failure(opts = {})
+      recv(response: opts[:status_code] || 400, auth:true)
+    end
+    alias :receive_400 :content_body_failure
+
     def auth_required(opts = {})
       recv(response: opts[:status_code] || 401, auth:true)
     end
