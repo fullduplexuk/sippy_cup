@@ -189,8 +189,8 @@ MSG
 
 INVITE sip:#{to_addr} SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
-From: sip:#{from_addr};tag=[call_number]
-To: sip:#{to_addr}
+From: <sip:#{from_addr}>;tag=[call_number]
+To: <sip:#{to_addr}>
 Call-ID: [call_id]
 CSeq: [cseq] INVITE
 Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
@@ -231,7 +231,64 @@ a=fmtp:101 0-15
       @reference_variables += %w(remote_addr local_addr call_addr)
     end
 
-    def subscribe(opts = {})
+    def invite_auth(user, password = nil, opts = {})
+      # FIXME: The DTMF mapping (101) is hard-coded. It would be better if we could
+      # get this from the DTMF payload generator
+      user, domain = parse_user user
+      from_domain = @from_domain || @adv_ip
+      from_addr = "#{@from_user}@#{from_domain || @adv_ip + ":[local_port]"}"
+      max_forwards = 100
+      user_agent = #{user_agent}
+      hold = UNHOLD
+      msg = <<-MSG
+
+INVITE sip:#{to_addr} SIP/2.0
+Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];rport;branch=[branch]
+From: <sip:#{from_addr}>;tag=[call_number]
+To: <sip:#{to_addr}>
+Call-ID: [call_id]
+CSeq: [cseq] INVITE
+Contact: <sip:#{@from_user}@#{@adv_ip}:[local_port];transport=[transport]>
+Max-Forwards: #{max_forwards}
+[authentication username=#{user} password=#{password}]
+User-Agent: #{user_agent}
+Content-Type: application/sdp
+Content-Length: [len]
+
+v=0
+o=user1 53655765 2353687637 IN IP[local_ip_type] #{@adv_ip}
+s=-
+c=IN IP[media_ip_type] [media_ip]
+t=0 0
+m=audio [media_port] RTP/AVP 0 101
+a=rtcp-mux
+a=#{hold}
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+      MSG
+      send msg, opts do |send|
+        send << doc.create_element('action') do |action|
+          action << doc.create_element('assignstr') do |assignstr|
+            assignstr['assign_to'] = "remote_addr"
+            assignstr['value']     = to_addr
+          end
+          action << doc.create_element('assignstr') do |assignstr|
+            assignstr['assign_to'] = "local_addr"
+            assignstr['value']     = from_addr
+          end
+          action << doc.create_element('assignstr') do |assignstr|
+            assignstr['assign_to'] = "call_addr"
+            assignstr['value']     = to_addr
+          end
+        end
+      end
+      # These variables will only be used if we initiate a hangup
+      @reference_variables += %w(remote_addr local_addr call_addr)
+    end
+
+
+   def subscribe(opts = {})
       msg = <<-MSG
 SUBSCRIBE sip:#{@from_user}@#{@adv_ip} SIP/2.0
 Via: SIP/2.0/[transport] #{@adv_ip}:[local_port];branch=[branch]
@@ -695,6 +752,20 @@ Content-Length: 0
 
     def auth_required(opts = {})
       recv(response: opts[:status_code] || 401, auth:true)
+      ack_msg = <<-BODY
+ACK sip:#{@to_addr} SIP/2.0
+[last_Via:]
+[routes]
+[last_From:]
+[last_To:]
+[last_Call-ID:]
+CSeq: [cseq] ACK
+Subject: Proxy Auth Acknowledged
+Max-Forwards: 70
+Content-Length: 0
+      BODY
+
+      send ack_msg, {} 
     end
     alias :receive_401 :auth_required
 
